@@ -53,7 +53,7 @@
         
         <div class="bg-[#fff9f0] border border-[#f3e6d5] p-4 rounded-sm">
           <p class="text-xs leading-relaxed italic text-[#8c7355]">
-            ⚠️ 注意事項：Q球為冷凍、巴斯克為冷藏，不同溫層若需宅配/店到店，請分開填寫表單。
+            ⚠️ 注意事項：<br>Q球為冷凍、巴斯克為冷藏，<br>不同溫層若需宅配/店到店，請分開填寫表單。
           </p>
         </div>
 
@@ -249,7 +249,7 @@
       document.getElementById('currentYear').textContent = new Date().getFullYear();
 
       // ⭐️ 請在下方 scriptURL 填入您的 Google Apps Script 網址
-      const scriptURL = ""; 
+      const scriptURL = "https://script.google.com/macros/s/AKfycbxNV-rNNTWkkBlN0NNx4CWen6j6lT-MmQNcQiiKYiyVzrRu1nDUd1D7EyvOgmO0EXde/exec"; 
       
       const priceQ = 270;
       const priceBasque = 880;
@@ -468,7 +468,11 @@
           subtotal: subtotal,
           shippingFee: fee,
           totalPrice: total,
-          submittedAt: new Date().toISOString()
+          submittedAt: (() => {
+            const now = new Date();
+            const pad = (n) => String(n).padStart(2, '0');
+            return `${now.getFullYear()}/${pad(now.getMonth() + 1)}/${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
+          })()
         };
 
         try {
