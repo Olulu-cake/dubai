@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>杜拜巧克力甜點預購</title>
+    <!-- 引入 Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      /* 重置基礎樣式，避免瀏覽器預設的 margin 影響全屏排版 */
+      body {
+        margin: 0;
+        font-family: 'Georgia', serif;
+        background-color: #fdfbf7;
+        color: #3d2b1f;
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      /* 確保 radio 隱藏但不影響可及性/必填提示定位 */
+      .hidden-radio {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+    </style>
+  </head>
+  <!-- 
+    min-h-screen: 確保最小高度覆蓋全視窗。
+    在手機版 (預設)，不會有 overflow: hidden，頁面可以自然地往下滾動。
+  -->
+  <body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="h-20 flex items-center justify-between px-6 md:px-10 border-b border-[#e5e1da] bg-white shrink-0">
+      <div class="flex flex-col">
+        <h1 class="text-xl md:text-2xl font-light tracking-[0.2em] uppercase">Dubai Chocolate</h1>
+        <p class="text-[10px] md:text-xs tracking-widest uppercase opacity-60">Artisanal Dessert Pre-order</p>
+      </div>
+      <div class="text-[10px] md:text-[11px] tracking-widest uppercase font-semibold text-[#8c7355] text-right">
+        Limited Edition 2024
+      </div>
+    </header>
+
+    <!-- 
+      主版面容器 
+      手機版 (預設): flex-col，往下垂直排列延伸，隨整個 body 滾動。
+      電腦版 (md:): flex-row 左右並排，鎖定高度並隱藏溢出，讓左右區塊各自擁有滾動條。
+    -->
+    <form id="orderForm" class="flex-1 flex flex-col md:flex-row md:overflow-hidden">
+      
+      <!-- Sidebar / Left Column -->
+      <aside class="w-full md:w-1/3 md:border-r border-[#e5e1da] p-6 md:p-8 flex flex-col gap-6 md:overflow-y-auto shrink-0">
+        
+        <div class="bg-[#fff9f0] border border-[#f3e6d5] p-4 rounded-sm">
+          <p class="text-xs leading-relaxed italic text-[#8c7355]">
+            ⚠️ 注意事項：Q球為冷凍、巴斯克為冷藏，不同溫層若需宅配/店到店，請分開填寫表單。
+          </p>
+        </div>
+
+        <!-- 商品選擇放在前面 -->
+        <div class="space-y-4">
+          <h2 class="text-xs font-bold tracking-widest uppercase border-b border-[#3d2b1f] pb-1">商品選擇 Products</h2>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <img src="images/Q.jpg" alt="杜拜巧克力 Q球" class="w-12 h-12 rounded object-cover">
+                <div class="flex flex-col">
+                  <span class="text-sm">杜拜巧克力 Q球</span>
+                  <span class="text-[10px] opacity-60 font-sans">1盒2顆 $270元</span>
+                </div>
+              </div>
+              <input type="number" id="qtyQ" min="0" max="20" value="0" class="w-16 bg-white border border-[#d1ccc4] px-2 py-1 text-center text-sm focus:outline-none focus:border-[#8c7355]" />
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <img src="images/bas.jpg" alt="杜拜巧克力巴斯克" class="w-12 h-12 rounded object-cover">
+                <div class="flex flex-col">
+                  <span class="text-sm">杜拜巧克力巴斯克</span>
+                  <span class="text-[10px] opacity-60 font-sans">5吋 $880元</span>
+                </div>
+              </div>
+              <input type="number" id="qtyBasque" min="0" max="10" value="0" class="w-16 bg-white border border-[#d1ccc4] px-2 py-1 text-center text-sm focus:outline-none focus:border-[#8c7355]" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 基本資料放在後面 -->
+        <div class="space-y-4">
+          <h2 class="text-xs font-bold tracking-widest uppercase border-b border-[#3d2b1f] pb-1">基本資料 Basic Info</h2>
+          <div class="grid gap-4">
+            <div class="flex flex-col">
+              <label class="text-[10px] uppercase tracking-wider mb-1" for="name">姓名 Name *</label>
+              <input type="text" id="name" required class="bg-transparent border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355] transition-colors" />
+            </div>
+            <div class="flex flex-col">
+              <label class="text-[10px] uppercase tracking-wider mb-1" for="phone">聯絡電話 Phone *</label>
+              <input type="tel" id="phone" required class="bg-transparent border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355] transition-colors" />
+            </div>
+            <div class="flex flex-col">
+              <label class="text-[10px] uppercase tracking-wider mb-1" for="ig">IG 帳號 Instagram *</label>
+              <input type="text" id="ig" required class="bg-transparent border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355] transition-colors" />
+            </div>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- Main Content / Right Column -->
+      <section class="flex-1 p-6 md:p-8 flex flex-col justify-between w-full md:overflow-y-auto">
+        <div class="space-y-6">
+          <h2 class="text-xs font-bold tracking-widest uppercase border-b border-[#3d2b1f] pb-1 mb-6">取貨方式 Delivery</h2>
+          
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <label class="cursor-pointer relative">
+              <input type="radio" name="pickupMethod" value="A" class="hidden-radio peer" required />
+              <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#fcf8f2] transition-all">
+                <span class="text-[13px] md:text-sm block">苗栗竹南自取</span>
+              </div>
+            </label>
+            <label class="cursor-pointer relative">
+              <input type="radio" name="pickupMethod" value="B" class="hidden-radio peer" required />
+              <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#fcf8f2] transition-all">
+                <span class="text-[13px] md:text-sm block">台北士林自取</span>
+              </div>
+            </label>
+             <label class="cursor-pointer relative" id="methodCLabel">
+              <input type="radio" name="pickupMethod" value="C" class="hidden-radio peer" required />
+              <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#fcf8f2] transition-all">
+                <span class="text-[13px] md:text-sm block">宅配到府(冷藏)</span>
+              </div>
+            </label>
+            <label class="cursor-pointer relative" id="methodDLabel">
+              <input type="radio" name="pickupMethod" value="D" class="hidden-radio peer" required />
+              <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#fcf8f2] transition-all">
+                <span class="text-[13px] md:text-sm block">7-11店到店(冷凍)</span>
+              </div>
+            </label>
+          </div>
+
+          <!-- Sub options container -->
+          <div class="mt-8 space-y-4 min-h-[120px]">
+            
+            <div id="sub-A" class="sub-pickup flex-col transition-opacity duration-300" style="display: none;">
+              <label class="text-[10px] uppercase tracking-wider mb-2">選擇自取時段 <span class="text-red-500">*</span></label>
+              <select id="pickupTimeA" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]">
+                <option value="" disabled selected>-- 點擊選擇時段 --</option>
+                <option value="5/10 15:00-15:30">5/10 15:00-15:30</option>
+                <option value="5/10 17:30-18:00">5/10 17:30-18:00</option>
+                <option value="5/14 15:00-15:30">5/14 15:00-15:30</option>
+              </select>
+            </div>
+
+            <div id="sub-B" class="sub-pickup flex-col transition-opacity duration-300" style="display: none;">
+              <label class="text-[10px] uppercase tracking-wider mb-2">選擇自取時段 <span class="text-red-500">*</span></label>
+              <select id="pickupTimeB" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]">
+                <option value="" disabled selected>-- 點擊選擇時段 --</option>
+                <option value="5/29 15:00-15:30">5/29 15:00-15:30</option>
+                <option value="5/29 17:30-18:00">5/29 17:30-18:00</option>
+              </select>
+            </div>
+
+            <div id="sub-C" class="sub-pickup space-y-4 transition-opacity duration-300" style="display: none;">
+              <div class="flex flex-col">
+                <label class="text-[10px] uppercase tracking-wider mb-2">出貨梯次 <span class="text-red-500">*</span></label>
+                <select id="shippingBatchC" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]">
+                  <option value="" disabled selected>-- 點擊選擇梯次 --</option>
+                  <option value="5/12-13">5/12-13</option>
+                  <option value="5/25-27">5/25-27</option>
+                </select>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex flex-col">
+                  <label class="text-[10px] uppercase tracking-wider mb-2">收件人 Recipient <span class="text-red-500">*</span></label>
+                  <input type="text" id="recipientC" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]" />
+                </div>
+                <div class="flex flex-col">
+                  <label class="text-[10px] uppercase tracking-wider mb-2">收件人電話 Phone <span class="text-red-500">*</span></label>
+                  <input type="tel" id="recipientPhoneC" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]" />
+                </div>
+              </div>
+              <div class="flex flex-col">
+                <label class="text-[10px] uppercase tracking-wider mb-2">收件地址 Address <span class="text-red-500">*</span></label>
+                <input type="text" id="address" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]" />
+                <p class="text-[11px] text-[#8c7355] mt-2 flex items-center">
+                  ⚠️ 請確認收件地址是否有冷藏設備
+                </p>
+              </div>
+            </div>
+
+            <div id="sub-D" class="sub-pickup space-y-4 transition-opacity duration-300" style="display: none;">
+              <div class="flex flex-col">
+                <label class="text-[10px] uppercase tracking-wider mb-2">出貨梯次 <span class="text-red-500">*</span></label>
+                <select id="shippingBatchD" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]">
+                  <option value="" disabled selected>-- 點擊選擇梯次 --</option>
+                  <option value="5/12-13">5/12-13</option>
+                  <option value="5/25-27">5/25-27</option>
+                </select>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex flex-col">
+                  <label class="text-[10px] uppercase tracking-wider mb-2">收件人 Recipient <span class="text-red-500">*</span></label>
+                  <input type="text" id="recipientD" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]" />
+                </div>
+                <div class="flex flex-col">
+                  <label class="text-[10px] uppercase tracking-wider mb-2">收件人電話 Phone <span class="text-red-500">*</span></label>
+                  <input type="tel" id="recipientPhoneD" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]" />
+                </div>
+              </div>
+              <div class="flex flex-col">
+                <label class="text-[10px] uppercase tracking-wider mb-2">7-11 門市名稱與店號 <span class="text-red-500">*</span></label>
+                <input type="text" id="storeInfo" placeholder="例如：台北欣美門市 (123456)" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355] placeholder:text-[#d1ccc4]" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Footer Area with Total and Submit -->
+        <div class="mt-8 md:mt-12 pt-6 border-t border-[#e5e1da]">
+          <div class="flex flex-col gap-2 mb-6">
+            <div class="flex justify-between items-end">
+              <span class="text-[11px] tracking-widest uppercase opacity-60">商品總額 Subtotal</span>
+              <span class="text-sm font-sans font-medium" id="subtotalDisplay">NT$ 0</span>
+            </div>
+            <div class="flex justify-between items-end" id="shippingRow" style="display: none;">
+              <span class="text-[11px] tracking-widest uppercase opacity-60">運費 Shipping</span>
+              <span class="text-sm font-sans font-medium" id="shippingFeeDisplay">NT$ 0</span>
+            </div>
+            <div class="flex justify-between items-end mt-2 pt-2 border-t border-[#e5e1da] border-dashed">
+              <span class="text-sm tracking-widest uppercase font-bold">總計 Total</span>
+              <span class="text-2xl font-sans font-bold text-[#8c7355]" id="totalPriceDisplay">NT$ 0</span>
+            </div>
+          </div>
+
+          <button type="submit" id="submitBtn" class="w-full bg-[#3d2b1f] text-white py-4 uppercase tracking-[0.3em] text-xs font-bold hover:bg-[#5a402e] transition-colors disabled:opacity-70 flex justify-center items-center cursor-pointer">
+            確認送出訂單 CONFIRM ORDER
+          </button>
+          <div class="text-center mt-6">
+            <p class="text-[10px] uppercase tracking-widest opacity-40">
+              © <span id="currentYear"></span> Dubai Chocolate Desserts
+            </p>
+          </div>
+        </div>
+      </section>
+    </form>
+
+    <script>
+      // 處理年份
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+      // ⭐️ 請在下方 scriptURL 填入您的 Google Apps Script 網址
+      const scriptURL = ""; 
+      
+      const priceQ = 270;
+      const priceBasque = 880;
+
+      const qtyQInput = document.getElementById('qtyQ');
+      const qtyBasqueInput = document.getElementById('qtyBasque');
+      
+      const subtotalDisplay = document.getElementById('subtotalDisplay');
+      const shippingRow = document.getElementById('shippingRow');
+      const shippingFeeDisplay = document.getElementById('shippingFeeDisplay');
+      const totalPriceDisplay = document.getElementById('totalPriceDisplay');
+      
+      const radioButtons = document.querySelectorAll('input[name="pickupMethod"]');
+      const subPickups = document.querySelectorAll('.sub-pickup');
+      const orderForm = document.getElementById('orderForm');
+      const submitBtn = document.getElementById('submitBtn');
+
+      // 處理更新可選的取貨方式
+      function updateDeliveryOptions() {
+        const q = parseInt(qtyQInput.value) || 0;
+        const basque = parseInt(qtyBasqueInput.value) || 0;
+
+        const methodCLabel = document.getElementById('methodCLabel');
+        const methodDLabel = document.getElementById('methodDLabel');
+        const radioC = document.querySelector('input[value="C"]');
+        const radioD = document.querySelector('input[value="D"]');
+
+        if (q > 0 && basque === 0) {
+          // 只有Q球，不顯示宅配到府(冷藏)
+          methodCLabel.style.display = 'none';
+          radioC.disabled = true;
+          methodDLabel.style.display = 'block';
+          radioD.disabled = false;
+        } else if (basque > 0 && q === 0) {
+          // 只有巴斯克，不顯示7-11店到店(冷凍)
+          methodCLabel.style.display = 'block';
+          radioC.disabled = false;
+          methodDLabel.style.display = 'none';
+          radioD.disabled = true;
+        } else if (q > 0 && basque > 0) {
+          // 兩者皆有，都不顯示 (只能自取)
+          methodCLabel.style.display = 'none';
+          radioC.disabled = true;
+          methodDLabel.style.display = 'none';
+          radioD.disabled = true;
+        } else {
+          // 都為 0 (初始狀態)
+          methodCLabel.style.display = 'block';
+          radioC.disabled = false;
+          methodDLabel.style.display = 'block';
+          radioD.disabled = false;
+        }
+
+        // 若當前選中的被隱藏，取消選中，隱藏次選單，並移除必填，並重新計算運費
+        const checkedRadio = document.querySelector('input[name="pickupMethod"]:checked');
+        if (checkedRadio) {
+          if ((checkedRadio.value === 'C' && radioC.disabled) ||
+              (checkedRadio.value === 'D' && radioD.disabled)) {
+            checkedRadio.checked = false;
+            subPickups.forEach(el => {
+              el.style.display = 'none';
+              const inputs = el.querySelectorAll('input, select');
+              inputs.forEach(input => input.removeAttribute('required'));
+            });
+          }
+        }
+      }
+
+      // 處理計算總價與運費
+      function calculateTotal() {
+        updateDeliveryOptions();
+        
+        const q = parseInt(qtyQInput.value) || 0;
+        const basque = parseInt(qtyBasqueInput.value) || 0;
+        const subtotal = (q * priceQ) + (basque * priceBasque);
+        
+        let selectedMethod = '';
+        const checkedRadio = document.querySelector('input[name="pickupMethod"]:checked');
+        if (checkedRadio) {
+          selectedMethod = checkedRadio.value;
+        }
+
+        let fee = 0;
+        // 運費計算邏輯
+        if (selectedMethod === 'C') { // 宅配到府
+          if (q > 0) {
+            if (q <= 6) fee += 170;
+            else if (q < 13) fee += 250;
+            // 滿 13 盒免運費 (0)
+          }
+          if (basque > 0) {
+            if (basque <= 2) fee += 170;
+            else if (basque === 3) fee += 250;
+            // 滿 4 盒免運費 (0)
+          }
+        } else if (selectedMethod === 'D') { // 7-11店到店
+          if (q > 0) {
+            if (q <= 12) fee += 140;
+            // 滿 13 盒免運費 (0)
+          }
+          // 巴斯克為冷藏，根據規則不支援 7-11 冷凍店到店，故不計入或另行處理。如有選擇則只計算 Q球 運費
+        }
+
+        const total = subtotal + fee;
+
+        // UI 顯示更新
+        subtotalDisplay.textContent = 'NT$ ' + subtotal.toLocaleString();
+        
+        if (fee > 0 || (subtotal > 0 && (selectedMethod === 'C' || selectedMethod === 'D'))) {
+          // 有選擇寄送方式且有購買數量時顯示運費，0 元代表達免運門檻
+          shippingRow.style.display = 'flex';
+          shippingFeeDisplay.textContent = fee === 0 ? '免運費' : '+ NT$ ' + fee.toLocaleString();
+          if (fee === 0) {
+             shippingFeeDisplay.classList.add('text-green-600', 'font-bold');
+          } else {
+             shippingFeeDisplay.classList.remove('text-green-600', 'font-bold');
+          }
+        } else {
+          shippingRow.style.display = 'none';
+        }
+
+        totalPriceDisplay.textContent = 'NT$ ' + total.toLocaleString();
+
+        return { subtotal, fee, total };
+      }
+
+      qtyQInput.addEventListener('input', calculateTotal);
+      qtyBasqueInput.addEventListener('input', calculateTotal);
+
+      // 處理單選顯示不同欄位
+      function handlePickupChange(e) {
+        // 先將所有次級菜單藏起來，並移除必填
+        subPickups.forEach(el => {
+          el.style.display = 'none';
+          const inputs = el.querySelectorAll('input, select');
+          inputs.forEach(input => input.removeAttribute('required'));
+        });
+
+        const selectedVal = e.target.value;
+        const selectedSub = document.getElementById('sub-' + selectedVal);
+        
+        if (selectedSub) {
+          // 針對不同區塊套用正確的 display 排列方式
+          if (selectedVal === 'A' || selectedVal === 'B') {
+            selectedSub.style.display = 'flex';
+          } else {
+            selectedSub.style.display = 'block';
+          }
+          // 將顯示出來的項目加上必填屬性
+          const inputs = selectedSub.querySelectorAll('input, select');
+          inputs.forEach(input => input.setAttribute('required', 'true'));
+        }
+        
+        // 變更取貨方式時，重新計算運費
+        calculateTotal();
+      }
+
+      radioButtons.forEach(radio => {
+        radio.addEventListener('change', handlePickupChange);
+      });
+
+      // 處理表單發送
+      orderForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const q = parseInt(qtyQInput.value) || 0;
+        const basque = parseInt(qtyBasqueInput.value) || 0;
+        const { subtotal, fee, total } = calculateTotal();
+
+        // 簡單驗證至少選擇一樣商品
+        if (q === 0 && basque === 0) {
+          alert("請至少選擇一項商品數量！");
+          return;
+        }
+
+        submitBtn.disabled = true;
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = '處理中 PROCESSING...';
+
+        const pickupMethod = document.querySelector('input[name="pickupMethod"]:checked').value;
+        let pickupTime = "";
+        let shippingBatch = "";
+        let address = "";
+        let storeInfo = "";
+        let recipientName = "";
+        let recipientPhone = "";
+
+        if (pickupMethod === 'A') pickupTime = document.getElementById('pickupTimeA').value;
+        if (pickupMethod === 'B') pickupTime = document.getElementById('pickupTimeB').value;
+        if (pickupMethod === 'C') {
+          recipientName = document.getElementById('recipientC').value;
+          recipientPhone = document.getElementById('recipientPhoneC').value;
+          shippingBatch = document.getElementById('shippingBatchC').value;
+          address = document.getElementById('address').value;
+        }
+        if (pickupMethod === 'D') {
+          recipientName = document.getElementById('recipientD').value;
+          recipientPhone = document.getElementById('recipientPhoneD').value;
+          shippingBatch = document.getElementById('shippingBatchD').value;
+          storeInfo = document.getElementById('storeInfo').value;
+        }
+
+        const formData = {
+          name: document.getElementById('name').value,
+          phone: document.getElementById('phone').value,
+          ig: document.getElementById('ig').value,
+          qtyQ: q,
+          qtyBasque: basque,
+          pickupMethod: pickupMethod,
+          pickupTime: pickupTime,
+          shippingBatch: shippingBatch,
+          address: address,
+          storeInfo: storeInfo,
+          recipientName: recipientName,
+          recipientPhone: recipientPhone,
+          subtotal: subtotal,
+          shippingFee: fee,
+          totalPrice: total,
+          submittedAt: new Date().toISOString()
+        };
+
+        try {
+          if (!scriptURL) {
+            console.log("模擬送出資料:", formData);
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            alert('【測試模式】尚未設定 API 網址，已能在開發者工具 (Console) 查看 Payload。\n\n🎉 訂購成功！請截圖私訊 IG 進行確認。');
+          } else {
+            const response = await fetch(scriptURL, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              // mode: 'no-cors' 可避免瀏覽器安全性阻擋送出，但接收不到回傳狀態
+              mode: 'no-cors', 
+              body: JSON.stringify(formData)
+            });
+            alert('訂購成功！請截圖私訊 IG 進行確認');
+          }
+        } catch (error) {
+          console.error('Submission Error:', error);
+          alert('送出時發生問題。請確認網路狀況或是 API 限制！');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
+      });
+    </script>
+  </body>
+</html>
