@@ -168,6 +168,10 @@
                   <option value="5/25-27">5/25-27</option>
                 </select>
               </div>
+              <div class="flex items-center gap-2">
+                <input type="checkbox" id="sameAsBuyerC" class="w-4 h-4 text-[#8c7355] border-[#d1ccc4] focus:ring-[#8c7355]">
+                <label for="sameAsBuyerC" class="text-[12px] md:text-sm text-[#3d2b1f] cursor-pointer">訂購人資料與收件人相同</label>
+              </div>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="flex flex-col">
                   <label class="text-[10px] uppercase tracking-wider mb-2">收件人 Recipient <span class="text-red-500">*</span></label>
@@ -195,6 +199,10 @@
                   <option value="5/12-13">5/12-13</option>
                   <option value="5/25-27">5/25-27</option>
                 </select>
+              </div>
+              <div class="flex items-center gap-2">
+                <input type="checkbox" id="sameAsBuyerD" class="w-4 h-4 text-[#8c7355] border-[#d1ccc4] focus:ring-[#8c7355]">
+                <label for="sameAsBuyerD" class="text-[12px] md:text-sm text-[#3d2b1f] cursor-pointer">訂購人資料與收件人相同</label>
               </div>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="flex flex-col">
@@ -267,6 +275,52 @@
       const orderForm = document.getElementById('orderForm');
       const submitBtn = document.getElementById('submitBtn');
 
+      const orderNameInput = document.getElementById('name');
+      const orderPhoneInput = document.getElementById('phone');
+
+      // "訂購人資料與收件人相同" 邏輯
+      function syncBuyerData(checkboxId, targetNameId, targetPhoneId) {
+        const checkbox = document.getElementById(checkboxId);
+        if (!checkbox) return;
+        const targetName = document.getElementById(targetNameId);
+        const targetPhone = document.getElementById(targetPhoneId);
+
+        if (checkbox.checked) {
+          targetName.value = orderNameInput.value;
+          targetPhone.value = orderPhoneInput.value;
+        } else {
+          targetName.value = '';
+          targetPhone.value = '';
+        }
+      }
+
+      function setupCheckbox(checkboxId, nameId, phoneId) {
+        const checkbox = document.getElementById(checkboxId);
+        if (checkbox) {
+          checkbox.addEventListener('change', () => syncBuyerData(checkboxId, nameId, phoneId));
+        }
+      }
+
+      setupCheckbox('sameAsBuyerC', 'recipientC', 'recipientPhoneC');
+      setupCheckbox('sameAsBuyerD', 'recipientD', 'recipientPhoneD');
+
+      function updateSyncedData() {
+        const sameAsBuyerC = document.getElementById('sameAsBuyerC');
+        const sameAsBuyerD = document.getElementById('sameAsBuyerD');
+        
+        if (sameAsBuyerC && sameAsBuyerC.checked) {
+          document.getElementById('recipientC').value = orderNameInput.value;
+          document.getElementById('recipientPhoneC').value = orderPhoneInput.value;
+        }
+        if (sameAsBuyerD && sameAsBuyerD.checked) {
+          document.getElementById('recipientD').value = orderNameInput.value;
+          document.getElementById('recipientPhoneD').value = orderPhoneInput.value;
+        }
+      }
+
+      orderNameInput.addEventListener('input', updateSyncedData);
+      orderPhoneInput.addEventListener('input', updateSyncedData);
+      
       // 處理更新可選的取貨方式
       function updateDeliveryOptions() {
         const q = parseInt(qtyQInput.value) || 0;
