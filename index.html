@@ -69,7 +69,13 @@
                   <span class="text-[10px] opacity-60 font-sans">1盒2顆 $270元</span>
                 </div>
               </div>
-              <input type="number" id="qtyQ" min="0" max="20" value="0" class="w-16 bg-white border border-[#d1ccc4] px-2 py-1 text-center text-sm focus:outline-none focus:border-[#8c7355]" />
+              <div class="flex items-center gap-2">
+                <div class="flex items-center gap-1">
+                  <input type="number" id="qtyQ" min="0" max="100" value="0" class="w-16 bg-white border border-[#d1ccc4] px-2 py-1 text-center text-sm focus:outline-none focus:border-[#8c7355]" />
+                  <span class="text-sm text-[#3d2b1f]">盒</span>
+                </div>
+                <span id="qtyQPieces" class="text-sm text-[#8c7355] w-[40px] text-right font-medium">0 顆</span>
+              </div>
             </div>
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-4">
@@ -79,21 +85,21 @@
                   <span class="text-[10px] opacity-60 font-sans">5吋 $880元</span>
                 </div>
               </div>
-              <input type="number" id="qtyBasque" min="0" max="10" value="0" class="w-16 bg-white border border-[#d1ccc4] px-2 py-1 text-center text-sm focus:outline-none focus:border-[#8c7355]" />
+              <input type="number" id="qtyBasque" min="0" max="100" value="0" class="w-16 bg-white border border-[#d1ccc4] px-2 py-1 text-center text-sm focus:outline-none focus:border-[#8c7355]" />
             </div>
           </div>
         </div>
 
         <!-- 基本資料放在後面 -->
         <div class="space-y-4">
-          <h2 class="text-base font-bold tracking-widest uppercase border-b border-[#3d2b1f] pb-1">基本資料 Basic Info</h2>
+          <h2 class="text-base font-bold tracking-widest uppercase border-b border-[#3d2b1f] pb-1">訂購人資料 Customer Info</h2>
           <div class="grid gap-4">
             <div class="flex flex-col">
               <label class="text-[10px] uppercase tracking-wider mb-1" for="name">姓名 Name *</label>
               <input type="text" id="name" required class="bg-transparent border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355] transition-colors" />
             </div>
             <div class="flex flex-col">
-              <label class="text-[10px] uppercase tracking-wider mb-1" for="phone">聯絡電話 Phone *</label>
+              <label class="text-[10px] uppercase tracking-wider mb-1" for="phone">聯絡電話 Phone No. *</label>
               <input type="tel" id="phone" required class="bg-transparent border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355] transition-colors" />
             </div>
             <div class="flex flex-col">
@@ -320,7 +326,7 @@
 
       orderNameInput.addEventListener('input', updateSyncedData);
       orderPhoneInput.addEventListener('input', updateSyncedData);
-      
+
       // 處理更新可選的取貨方式
       function updateDeliveryOptions() {
         const q = parseInt(qtyQInput.value) || 0;
@@ -378,6 +384,12 @@
         
         const q = parseInt(qtyQInput.value) || 0;
         const basque = parseInt(qtyBasqueInput.value) || 0;
+
+                // 更新 Q球 顆數
+        const qtyQPieces = document.getElementById('qtyQPieces');
+        if (qtyQPieces) {
+          qtyQPieces.textContent = (q * 2) + ' 顆';
+        }
         const subtotal = (q * priceQ) + (basque * priceBasque);
         
         let selectedMethod = '';
@@ -452,8 +464,8 @@
           } else {
             selectedSub.style.display = 'block';
           }
-          // 將顯示出來的項目加上必填屬性
-          const inputs = selectedSub.querySelectorAll('input, select');
+          // 將顯示出來的項目加上必填屬性 (排除 checkbox)
+          const inputs = selectedSub.querySelectorAll('input:not([type="checkbox"]), select');
           inputs.forEach(input => input.setAttribute('required', 'true'));
         }
         
