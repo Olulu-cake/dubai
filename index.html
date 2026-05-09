@@ -37,7 +37,7 @@
         <p class="text-xs md:text-base tracking-widest uppercase opacity-60">產品預購單 Pre-order</p>
       </div>
       <div class="text-xs md:text-[13px] tracking-widest uppercase font-semibold text-[#8c7355] text-right">
-        <img src="images/logo.jpg" class="w-24 h-12 rounded object-cover">
+        <img src="images/logo.jpg" class="w-36 h-24 rounded object-cover">
       </div>
     </header>
 
@@ -160,7 +160,7 @@
 
           <!-- Sub options container -->
           <div class="mt-8 space-y-4 min-h-[120px]">
-            
+            <!-- 苗栗竹南自取 -->
             <div id="sub-A" class="sub-pickup flex-col transition-opacity duration-300" style="display: none;">
               <label class="text-xs uppercase tracking-wider mb-2">選擇自取時段 <span class="text-red-500">*</span></label>
               <select id="pickupTimeA" class="bg-white border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355]">
@@ -168,24 +168,36 @@
                 <option value="2026/5/10 15:00-15:30">2026/5/10 15:00-15:30</option>
                 <option value="2026/5/10 17:30-18:00">2026/5/10 17:30-18:00</option>
                 <option value="2026/5/14 15:00-15:30">2026/5/14 15:00-15:30</option>
+                <option value="2026/5/14 17:30-18:00">2026/5/14 17:30-18:00</option>
+                <option value="2026/5/23 15:00-15:30">2026/5/23 15:00-15:30</option>
+                <option value="2026/5/23 17:30-18:00">2026/5/23 17:30-18:00</option>
+                <option value="2026/5/29 15:00-15:30">2026/5/29 15:00-15:30</option>
+                <option value="2026/5/29 17:30-18:00">2026/5/29 17:30-18:00</option>
+                <option value="2026/5/30 15:00-15:30">2026/5/30 15:00-15:30</option>
+                <option value="2026/5/30 17:30-18:00">2026/5/30 17:30-18:00</option>
+                <option value="2026/5/31 15:00-15:30">2026/5/31 15:00-15:30</option>
+                <option value="2026/5/31 17:30-18:00">2026/5/31 17:30-18:00</option>
               </select>
             </div>
 
+            <!-- 台北士林自取 -->
             <div id="sub-B" class="sub-pickup flex-col transition-opacity duration-300" style="display: none;">
               <label class="text-xs uppercase tracking-wider mb-2">選擇自取時段 <span class="text-red-500">*</span></label>
               <select id="pickupTimeB" class="bg-white border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355]">
                 <option value="" disabled selected>-- 點擊選擇時段 --</option>
+                <option value="2026/5/26 15:00-15:30">2026/5/26 15:00-15:30</option>
+                <option value="2026/5/26 17:30-18:00">2026/5/26 17:30-18:00</option>
                 <option value="2026/5/29 15:00-15:30">2026/5/29 15:00-15:30</option>
                 <option value="2026/5/29 17:30-18:00">2026/5/29 17:30-18:00</option>
               </select>
             </div>
 
+            <!-- 宅配到府(冷藏) -->
             <div id="sub-C" class="sub-pickup space-y-4 transition-opacity duration-300" style="display: none;">
               <div class="flex flex-col">
                 <label class="text-xs uppercase tracking-wider mb-2">出貨梯次 <span class="text-red-500">*</span></label>
                 <select id="shippingBatchC" class="bg-white border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355]">
                   <option value="" disabled selected>-- 點擊選擇梯次 --</option>
-                  <option value="2026/5/12-13">2026/5/12-13</option>
                   <option value="2026/5/25-27">2026/5/25-27</option>
                 </select>
               </div>
@@ -211,13 +223,12 @@
                 </p>
               </div>
             </div>
-
+            <!-- 7-11店到店(冷凍) -->
             <div id="sub-D" class="sub-pickup space-y-4 transition-opacity duration-300" style="display: none;">
               <div class="flex flex-col">
                 <label class="text-xs uppercase tracking-wider mb-2">出貨梯次 <span class="text-red-500">*</span></label>
                 <select id="shippingBatchD" class="bg-white border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355]">
                   <option value="" disabled selected>-- 點擊選擇梯次 --</option>
-                  <option value="2026/5/12-13">2026/5/12-13</option>
                   <option value="2026/5/25-27">2026/5/25-27</option>
                 </select>
               </div>
@@ -241,12 +252,12 @@
               </div>
             </div>
 
+            <!-- 宅配到府(冷凍) -->
             <div id="sub-E" class="sub-pickup space-y-4 transition-opacity duration-300" style="display: none;">
               <div class="flex flex-col">
                 <label class="text-xs uppercase tracking-wider mb-2">出貨梯次 <span class="text-red-500">*</span></label>
                 <select id="shippingBatchE" class="bg-white border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355]">
                   <option value="" disabled selected>-- 點擊選擇梯次 --</option>
-                  <option value="2026/5/12-13">2026/5/12-13</option>
                   <option value="2026/5/25-27">2026/5/25-27</option>
                 </select>
               </div>
