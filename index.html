@@ -33,8 +33,8 @@
     <!-- Header -->
     <header class="h-20 flex items-center justify-between px-6 md:px-10 border-b border-[#e5e1da] bg-white shrink-0">
       <div class="flex flex-col">
-        <h1 class="text-xl md:text-2xl font-light tracking-[0.2em] uppercase">Olulu 杜拜巧克力
-        <p class="text-[10px] md:text-xs tracking-widest uppercase opacity-60">產品預購單 Pre-order</p>
+        <h1 class="text-xl md:text-2xl font-light tracking-[0.2em] uppercase">Olulu<br>杜拜巧克力
+        <p class="text-[10px] md:text-sm tracking-widest uppercase opacity-60">產品預購單 Pre-order</p>
       </div>
       <div class="text-[10px] md:text-[11px] tracking-widest uppercase font-semibold text-[#8c7355] text-right">
         <img src="images/logo.jpg" class="w-24 h-12 rounded object-cover">
@@ -52,8 +52,12 @@
       <aside class="w-full md:w-1/3 md:border-r border-[#e5e1da] p-6 md:p-8 flex flex-col gap-6 md:overflow-y-auto shrink-0">
         
         <div class="bg-[#fff9f0] border border-[#f3e6d5] p-4 rounded-sm">
-          <p class="text-xs leading-relaxed italic text-[#8c7355]">
-            ⚠️ 注意事項：<br>Q球為冷凍、巴斯克為冷藏，<br>不同溫層若需宅配/店到店，請分開填寫表單。
+          <p class="text-sm leading-relaxed italic text-[#8c7355]">
+            ⚠️ 注意事項：
+            <br>🧆Q球為冷凍、巴斯克為冷藏。
+            <br>🧆同時購買Q球及巴斯克如選擇宅配/店到店，需分開填寫表單。
+            <br>🧆Q球13盒以上免運費，巴斯克4盒以上免運費。(限單一地址)
+            <br>🧆取貨方式選擇宅配/店到店者，請務必填寫完整的收件資訊。
           </p>
         </div>
 
@@ -86,6 +90,7 @@
                 </div>
               </div>
               <input type="number" id="qtyBasque" min="0" max="100" value="0" class="w-16 bg-white border border-[#d1ccc4] px-2 py-1 text-center text-sm focus:outline-none focus:border-[#8c7355]" />
+              <span class="text-sm text-[#3d2b1f]">盒</span>
             </div>
           </div>
         </div>
@@ -116,7 +121,7 @@
         <div class="space-y-6">
           <h2 class="text-base font-bold tracking-widest uppercase border-b border-[#3d2b1f] pb-1 mb-6">取貨方式 Delivery</h2>
           
-          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
             <label class="cursor-pointer relative">
               <input type="radio" name="pickupMethod" value="A" class="hidden-radio peer" required />
               <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#fcf8f2] transition-all">
@@ -139,6 +144,12 @@
               <input type="radio" name="pickupMethod" value="D" class="hidden-radio peer" required />
               <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#fcf8f2] transition-all">
                 <span class="text-[13px] md:text-sm block">7-11店到店(冷凍)</span>
+              </div>
+            </label>
+            <label class="cursor-pointer relative" id="methodELabel">
+              <input type="radio" name="pickupMethod" value="E" class="hidden-radio peer" required />
+              <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#fcf8f2] transition-all">
+                <span class="text-[13px] md:text-sm block">宅配到府(冷凍)</span>
               </div>
             </label>
           </div>
@@ -225,6 +236,38 @@
                 <input type="text" id="storeInfo" placeholder="例如：台北欣美門市 (123456)" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355] placeholder:text-[#d1ccc4]" />
               </div>
             </div>
+
+            <div id="sub-E" class="sub-pickup space-y-4 transition-opacity duration-300" style="display: none;">
+              <div class="flex flex-col">
+                <label class="text-[10px] uppercase tracking-wider mb-2">出貨梯次 <span class="text-red-500">*</span></label>
+                <select id="shippingBatchE" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]">
+                  <option value="" disabled selected>-- 點擊選擇梯次 --</option>
+                  <option value="5/12-13">5/12-13</option>
+                  <option value="5/25-27">5/25-27</option>
+                </select>
+              </div>
+              <div class="flex items-center gap-2">
+                <input type="checkbox" id="sameAsBuyerE" class="w-4 h-4 text-[#8c7355] border-[#d1ccc4] focus:ring-[#8c7355]">
+                <label for="sameAsBuyerE" class="text-[12px] md:text-sm text-[#3d2b1f] cursor-pointer">訂購人資料與收件人相同</label>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex flex-col">
+                  <label class="text-[10px] uppercase tracking-wider mb-2">收件人 Recipient <span class="text-red-500">*</span></label>
+                  <input type="text" id="recipientE" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]" />
+                </div>
+                <div class="flex flex-col">
+                  <label class="text-[10px] uppercase tracking-wider mb-2">收件人電話 Phone <span class="text-red-500">*</span></label>
+                  <input type="tel" id="recipientPhoneE" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]" />
+                </div>
+              </div>
+              <div class="flex flex-col">
+                <label class="text-[10px] uppercase tracking-wider mb-2">收件地址 Address <span class="text-red-500">*</span></label>
+                <input type="text" id="addressE" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]" />
+                <p class="text-[11px] text-[#8c7355] mt-2 flex items-center">
+                  ⚠️ 請確認收件地址是否有冷凍設備
+                </p>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -234,11 +277,11 @@
           <div class="flex flex-col gap-2 mb-6">
             <div class="flex justify-between items-end">
               <span class="text-[11px] tracking-widest uppercase opacity-60">商品總額 Subtotal</span>
-              <span class="text-sm font-sans font-medium" id="subtotalDisplay">NT$ 0</span>
+              <span class="text-base font-sans font-medium" id="subtotalDisplay">NT$ 0</span>
             </div>
             <div class="flex justify-between items-end" id="shippingRow" style="display: none;">
               <span class="text-[11px] tracking-widest uppercase opacity-60">運費 Shipping</span>
-              <span class="text-sm font-sans font-medium" id="shippingFeeDisplay">NT$ 0</span>
+              <span class="text-base font-sans font-medium" id="shippingFeeDisplay">NT$ 0</span>
             </div>
             <div class="flex justify-between items-end mt-2 pt-2 border-t border-[#e5e1da] border-dashed">
               <span class="text-base tracking-widest uppercase font-bold">總計 Total</span>
@@ -309,10 +352,12 @@
 
       setupCheckbox('sameAsBuyerC', 'recipientC', 'recipientPhoneC');
       setupCheckbox('sameAsBuyerD', 'recipientD', 'recipientPhoneD');
+      setupCheckbox('sameAsBuyerE', 'recipientE', 'recipientPhoneE');
 
       function updateSyncedData() {
         const sameAsBuyerC = document.getElementById('sameAsBuyerC');
         const sameAsBuyerD = document.getElementById('sameAsBuyerD');
+        const sameAsBuyerE = document.getElementById('sameAsBuyerE');
         
         if (sameAsBuyerC && sameAsBuyerC.checked) {
           document.getElementById('recipientC').value = orderNameInput.value;
@@ -321,6 +366,10 @@
         if (sameAsBuyerD && sameAsBuyerD.checked) {
           document.getElementById('recipientD').value = orderNameInput.value;
           document.getElementById('recipientPhoneD').value = orderPhoneInput.value;
+        }
+        if (sameAsBuyerE && sameAsBuyerE.checked) {
+          document.getElementById('recipientE').value = orderNameInput.value;
+          document.getElementById('recipientPhoneE').value = orderPhoneInput.value;
         }
       }
 
@@ -334,8 +383,10 @@
 
         const methodCLabel = document.getElementById('methodCLabel');
         const methodDLabel = document.getElementById('methodDLabel');
+        const methodELabel = document.getElementById('methodELabel');
         const radioC = document.querySelector('input[value="C"]');
         const radioD = document.querySelector('input[value="D"]');
+        const radioE = document.querySelector('input[value="E"]');
 
         if (q > 0 && basque === 0) {
           // 只有Q球，不顯示宅配到府(冷藏)
@@ -343,31 +394,40 @@
           radioC.disabled = true;
           methodDLabel.style.display = 'block';
           radioD.disabled = false;
+          methodELabel.style.display = 'block';
+          radioE.disabled = false;
         } else if (basque > 0 && q === 0) {
-          // 只有巴斯克，不顯示7-11店到店(冷凍)
+          // 只有巴斯克，不顯示7-11店到店(冷凍) 和 宅配到府(冷凍)
           methodCLabel.style.display = 'block';
           radioC.disabled = false;
           methodDLabel.style.display = 'none';
           radioD.disabled = true;
+          methodELabel.style.display = 'none';
+          radioE.disabled = true;
         } else if (q > 0 && basque > 0) {
           // 兩者皆有，都不顯示 (只能自取)
           methodCLabel.style.display = 'none';
           radioC.disabled = true;
           methodDLabel.style.display = 'none';
           radioD.disabled = true;
+          methodELabel.style.display = 'none';
+          radioE.disabled = true;
         } else {
           // 都為 0 (初始狀態)
           methodCLabel.style.display = 'block';
           radioC.disabled = false;
           methodDLabel.style.display = 'block';
           radioD.disabled = false;
+          methodELabel.style.display = 'block';
+          radioE.disabled = false;
         }
 
         // 若當前選中的被隱藏，取消選中，隱藏次選單，並移除必填，並重新計算運費
         const checkedRadio = document.querySelector('input[name="pickupMethod"]:checked');
         if (checkedRadio) {
           if ((checkedRadio.value === 'C' && radioC.disabled) ||
-              (checkedRadio.value === 'D' && radioD.disabled)) {
+              (checkedRadio.value === 'D' && radioD.disabled) ||
+              (checkedRadio.value === 'E' && radioE.disabled)) {
             checkedRadio.checked = false;
             subPickups.forEach(el => {
               el.style.display = 'none';
@@ -417,6 +477,12 @@
             // 滿 13 盒免運費 (0)
           }
           // 巴斯克為冷藏，根據規則不支援 7-11 冷凍店到店，故不計入或另行處理。如有選擇則只計算 Q球 運費
+        } else if (selectedMethod === 'E') { // 宅配到府 (冷凍)
+          if (q > 0) {
+            if (q <= 6) fee += 170;
+            else if (q < 13) fee += 250;
+            // 滿 13 盒免運費 (0)
+          }
         }
 
         const total = subtotal + fee;
@@ -424,7 +490,7 @@
         // UI 顯示更新
         subtotalDisplay.textContent = 'NT$ ' + subtotal.toLocaleString();
         
-        if (fee > 0 || (subtotal > 0 && (selectedMethod === 'C' || selectedMethod === 'D'))) {
+        if (fee > 0 || (subtotal > 0 && (selectedMethod === 'C' || selectedMethod === 'D' || selectedMethod === 'E'))) {
           // 有選擇寄送方式且有購買數量時顯示運費，0 元代表達免運門檻
           shippingRow.style.display = 'flex';
           shippingFeeDisplay.textContent = fee === 0 ? '免運費' : '+ NT$ ' + fee.toLocaleString();
@@ -516,6 +582,12 @@
           recipientPhone = document.getElementById('recipientPhoneD').value;
           shippingBatch = document.getElementById('shippingBatchD').value;
           storeInfo = document.getElementById('storeInfo').value;
+        }
+        if (pickupMethod === 'E') {
+          recipientName = document.getElementById('recipientE').value;
+          recipientPhone = document.getElementById('recipientPhoneE').value;
+          shippingBatch = document.getElementById('shippingBatchE').value;
+          address = document.getElementById('addressE').value;
         }
 
         const formData = {
