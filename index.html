@@ -33,10 +33,10 @@
     <!-- Header -->
     <header class="h-20 flex items-center justify-between px-6 md:px-10 border-b border-[#e5e1da] bg-white shrink-0">
       <div class="flex flex-col">
-        <h1 class="text-xl md:text-3xl font-light tracking-[0.2em] uppercase">Olulu<br>杜拜巧克力
-        <p class="text-[10px] md:text-sm tracking-widest uppercase opacity-60">產品預購單 Pre-order</p>
+        <h1 class="text-2xl md:text-4xl font-light tracking-[0.2em] uppercase">Olulu<br>杜拜巧克力
+        <p class="text-xs md:text-base tracking-widest uppercase opacity-60">產品預購單 Pre-order</p>
       </div>
-      <div class="text-[10px] md:text-[11px] tracking-widest uppercase font-semibold text-[#8c7355] text-right">
+      <div class="text-xs md:text-[13px] tracking-widest uppercase font-semibold text-[#8c7355] text-right">
         <img src="images/logo.jpg" class="w-24 h-12 rounded object-cover">
       </div>
     </header>
@@ -52,7 +52,7 @@
       <aside class="w-full md:w-1/3 md:border-r border-[#e5e1da] p-6 md:p-8 flex flex-col gap-6 md:overflow-y-auto shrink-0">
         
         <div class="bg-[#fff9f0] border border-[#f3e6d5] p-4 rounded-sm">
-          <p class="text-sm leading-relaxed italic text-[#8c7355]">
+          <p class="text-base leading-relaxed italic text-[#8c7355]">
             ⚠️ 注意事項：
             <br>🧆Q球為冷凍、巴斯克為冷藏。
             <br>🧆同時購買Q球及巴斯克如選擇宅配/店到店，需分開填寫表單。
@@ -63,21 +63,21 @@
 
         <!-- 商品選擇放在前面 -->
         <div class="space-y-4">
-          <h2 class="text-base font-bold tracking-widest uppercase border-b border-[#3d2b1f] pb-1">商品選擇 Products</h2>
+          <h2 class="text-lg font-bold tracking-widest uppercase border-b border-[#3d2b1f] pb-1">商品選擇 Products</h2>
           <div class="space-y-4">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-4">
                 <img src="images/Q.jpg" alt="杜拜巧克力 Q球" class="w-12 h-12 rounded object-cover">
                 <div class="flex flex-col">
-                  <span class="text-sm">杜拜巧克力 Q球</span>
-                  <span class="text-[10px] opacity-60 font-sans">1盒2顆 $270元</span>
+                  <span class="text-base">杜拜巧克力 Q球</span>
+                  <span class="text-xs opacity-60 font-sans">1盒2顆 $270元</span>
                 </div>
               </div>
               <div class="flex items-center gap-2">
-                <span id="qtyQPieces" class="text-sm text-[#8c7355] w-[40px] text-right font-medium">0 顆</span>
+                <span id="qtyQPieces" class="text-base text-[#8c7355] w-[40px] text-right font-medium">0 顆</span>
                 <div class="flex items-center gap-1">
-                  <select id="qtyQ" class="w-16 bg-white border border-[#d1ccc4] px-2 py-1 text-center text-sm focus:outline-none focus:border-[#8c7355]"></select>
-                  <span class="text-sm text-[#3d2b1f]">盒</span>
+                  <select id="qtyQ" class="w-16 bg-white border border-[#d1ccc4] px-2 py-1 text-center text-base focus:outline-none focus:border-[#8c7355]"></select>
+                  <span class="text-base text-[#3d2b1f]">盒</span>
                 </div>
               </div>
             </div>
@@ -85,14 +85,14 @@
               <div class="flex items-center gap-4">
                 <img src="images/bas.jpg" alt="杜拜巧克力巴斯克" class="w-12 h-12 rounded object-cover">
                 <div class="flex flex-col">
-                  <span class="text-sm">杜拜巧克力巴斯克</span>
-                  <span class="text-[10px] opacity-60 font-sans">5吋 $880元</span>
+                  <span class="text-base">杜拜巧克力巴斯克</span>
+                  <span class="text-xs opacity-60 font-sans">5吋 $880元</span>
                 </div>
               </div>
               <div class="flex items-center gap-2">
                 <div class="flex items-center gap-1">
-                  <select id="qtyBasque" class="w-16 bg-white border border-[#d1ccc4] px-2 py-1 text-center text-sm focus:outline-none focus:border-[#8c7355]"></select>
-                  <span class="text-sm text-[#3d2b1f]">盒</span>
+                  <select id="qtyBasque" class="w-16 bg-white border border-[#d1ccc4] px-2 py-1 text-center text-base focus:outline-none focus:border-[#8c7355]"></select>
+                  <span class="text-base text-[#3d2b1f]">盒</span>
                 </div>
               </div>
             </div>
@@ -101,19 +101,19 @@
 
         <!-- 基本資料放在後面 -->
         <div class="space-y-4">
-          <h2 class="text-base font-bold tracking-widest uppercase border-b border-[#3d2b1f] pb-1">訂購人資料 Customer Info</h2>
+          <h2 class="text-lg font-bold tracking-widest uppercase border-b border-[#3d2b1f] pb-1">訂購人資料 Customer Info</h2>
           <div class="grid gap-4">
             <div class="flex flex-col">
-              <label class="text-[10px] uppercase tracking-wider mb-1" for="name">姓名 Name *</label>
-              <input type="text" id="name" required class="bg-transparent border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355] transition-colors" />
+              <label class="text-xs uppercase tracking-wider mb-1" for="name">姓名 Name *</label>
+              <input type="text" id="name" required class="bg-transparent border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355] transition-colors" />
             </div>
             <div class="flex flex-col">
-              <label class="text-[10px] uppercase tracking-wider mb-1" for="phone">聯絡電話 Phone No. *</label>
-              <input type="tel" id="phone" required class="bg-transparent border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355] transition-colors" />
+              <label class="text-xs uppercase tracking-wider mb-1" for="phone">聯絡電話 Phone No. *</label>
+              <input type="tel" id="phone" required class="bg-transparent border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355] transition-colors" />
             </div>
             <div class="flex flex-col">
-              <label class="text-[10px] uppercase tracking-wider mb-1" for="ig">IG 帳號 Instagram *</label>
-              <input type="text" id="ig" required class="bg-transparent border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355] transition-colors" />
+              <label class="text-xs uppercase tracking-wider mb-1" for="ig">IG 帳號 Instagram *</label>
+              <input type="text" id="ig" required class="bg-transparent border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355] transition-colors" />
             </div>
           </div>
         </div>
@@ -123,37 +123,37 @@
       <!-- Main Content / Right Column -->
       <section class="flex-1 p-6 md:p-8 flex flex-col justify-between w-full md:overflow-y-auto">
         <div class="space-y-6">
-          <h2 class="text-base font-bold tracking-widest uppercase border-b border-[#3d2b1f] pb-1 mb-6">取貨方式 Delivery</h2>
+          <h2 class="text-lg font-bold tracking-widest uppercase border-b border-[#3d2b1f] pb-1 mb-6">取貨方式 Delivery</h2>
           
           <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
             <label class="cursor-pointer relative">
               <input type="radio" name="pickupMethod" value="A" class="hidden-radio peer" required />
               <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#fcf8f2] transition-all">
-                <span class="text-[13px] md:text-sm block">苗栗竹南自取</span>
+                <span class="text-[15px] md:text-base block">苗栗竹南自取</span>
               </div>
             </label>
             <label class="cursor-pointer relative">
               <input type="radio" name="pickupMethod" value="B" class="hidden-radio peer" required />
               <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#fcf8f2] transition-all">
-                <span class="text-[13px] md:text-sm block">台北士林自取</span>
+                <span class="text-[15px] md:text-base block">台北士林自取</span>
               </div>
             </label>
              <label class="cursor-pointer relative" id="methodCLabel">
               <input type="radio" name="pickupMethod" value="C" class="hidden-radio peer" required />
               <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#fcf8f2] transition-all">
-                <span class="text-[13px] md:text-sm block">宅配到府(冷藏)</span>
+                <span class="text-[15px] md:text-base block">宅配到府(冷藏)</span>
               </div>
             </label>
             <label class="cursor-pointer relative" id="methodDLabel">
               <input type="radio" name="pickupMethod" value="D" class="hidden-radio peer" required />
               <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#fcf8f2] transition-all">
-                <span class="text-[13px] md:text-sm block">7-11店到店(冷凍)</span>
+                <span class="text-[15px] md:text-base block">7-11店到店(冷凍)</span>
               </div>
             </label>
             <label class="cursor-pointer relative" id="methodELabel">
               <input type="radio" name="pickupMethod" value="E" class="hidden-radio peer" required />
               <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#fcf8f2] transition-all">
-                <span class="text-[13px] md:text-sm block">宅配到府(冷凍)</span>
+                <span class="text-[15px] md:text-base block">宅配到府(冷凍)</span>
               </div>
             </label>
           </div>
@@ -162,8 +162,8 @@
           <div class="mt-8 space-y-4 min-h-[120px]">
             
             <div id="sub-A" class="sub-pickup flex-col transition-opacity duration-300" style="display: none;">
-              <label class="text-[10px] uppercase tracking-wider mb-2">選擇自取時段 <span class="text-red-500">*</span></label>
-              <select id="pickupTimeA" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]">
+              <label class="text-xs uppercase tracking-wider mb-2">選擇自取時段 <span class="text-red-500">*</span></label>
+              <select id="pickupTimeA" class="bg-white border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355]">
                 <option value="" disabled selected>-- 點擊選擇時段 --</option>
                 <option value="5/10 15:00-15:30">5/10 15:00-15:30</option>
                 <option value="5/10 17:30-18:00">5/10 17:30-18:00</option>
@@ -172,8 +172,8 @@
             </div>
 
             <div id="sub-B" class="sub-pickup flex-col transition-opacity duration-300" style="display: none;">
-              <label class="text-[10px] uppercase tracking-wider mb-2">選擇自取時段 <span class="text-red-500">*</span></label>
-              <select id="pickupTimeB" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]">
+              <label class="text-xs uppercase tracking-wider mb-2">選擇自取時段 <span class="text-red-500">*</span></label>
+              <select id="pickupTimeB" class="bg-white border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355]">
                 <option value="" disabled selected>-- 點擊選擇時段 --</option>
                 <option value="5/29 15:00-15:30">5/29 15:00-15:30</option>
                 <option value="5/29 17:30-18:00">5/29 17:30-18:00</option>
@@ -182,8 +182,8 @@
 
             <div id="sub-C" class="sub-pickup space-y-4 transition-opacity duration-300" style="display: none;">
               <div class="flex flex-col">
-                <label class="text-[10px] uppercase tracking-wider mb-2">出貨梯次 <span class="text-red-500">*</span></label>
-                <select id="shippingBatchC" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]">
+                <label class="text-xs uppercase tracking-wider mb-2">出貨梯次 <span class="text-red-500">*</span></label>
+                <select id="shippingBatchC" class="bg-white border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355]">
                   <option value="" disabled selected>-- 點擊選擇梯次 --</option>
                   <option value="5/12-13">5/12-13</option>
                   <option value="5/25-27">5/25-27</option>
@@ -191,22 +191,22 @@
               </div>
               <div class="flex items-center gap-2">
                 <input type="checkbox" id="sameAsBuyerC" class="w-4 h-4 text-[#8c7355] border-[#d1ccc4] focus:ring-[#8c7355]">
-                <label for="sameAsBuyerC" class="text-[12px] md:text-sm text-[#3d2b1f] cursor-pointer">訂購人資料與收件人相同</label>
+                <label for="sameAsBuyerC" class="text-sm md:text-base text-[#3d2b1f] cursor-pointer">訂購人資料與收件人相同</label>
               </div>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="flex flex-col">
-                  <label class="text-[10px] uppercase tracking-wider mb-2">收件人 Recipient <span class="text-red-500">*</span></label>
-                  <input type="text" id="recipientC" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]" />
+                  <label class="text-xs uppercase tracking-wider mb-2">收件人 Recipient <span class="text-red-500">*</span></label>
+                  <input type="text" id="recipientC" class="bg-white border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355]" />
                 </div>
                 <div class="flex flex-col">
-                  <label class="text-[10px] uppercase tracking-wider mb-2">收件人電話 Phone <span class="text-red-500">*</span></label>
-                  <input type="tel" id="recipientPhoneC" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]" />
+                  <label class="text-xs uppercase tracking-wider mb-2">收件人電話 Phone <span class="text-red-500">*</span></label>
+                  <input type="tel" id="recipientPhoneC" class="bg-white border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355]" />
                 </div>
               </div>
               <div class="flex flex-col">
-                <label class="text-[10px] uppercase tracking-wider mb-2">收件地址 Address <span class="text-red-500">*</span></label>
-                <input type="text" id="address" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]" />
-                <p class="text-[11px] text-[#8c7355] mt-2 flex items-center">
+                <label class="text-xs uppercase tracking-wider mb-2">收件地址 Address <span class="text-red-500">*</span></label>
+                <input type="text" id="address" class="bg-white border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355]" />
+                <p class="text-[13px] text-[#8c7355] mt-2 flex items-center">
                   ⚠️ 請確認收件地址是否有冷藏設備
                 </p>
               </div>
@@ -214,8 +214,8 @@
 
             <div id="sub-D" class="sub-pickup space-y-4 transition-opacity duration-300" style="display: none;">
               <div class="flex flex-col">
-                <label class="text-[10px] uppercase tracking-wider mb-2">出貨梯次 <span class="text-red-500">*</span></label>
-                <select id="shippingBatchD" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]">
+                <label class="text-xs uppercase tracking-wider mb-2">出貨梯次 <span class="text-red-500">*</span></label>
+                <select id="shippingBatchD" class="bg-white border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355]">
                   <option value="" disabled selected>-- 點擊選擇梯次 --</option>
                   <option value="5/12-13">5/12-13</option>
                   <option value="5/25-27">5/25-27</option>
@@ -223,28 +223,28 @@
               </div>
               <div class="flex items-center gap-2">
                 <input type="checkbox" id="sameAsBuyerD" class="w-4 h-4 text-[#8c7355] border-[#d1ccc4] focus:ring-[#8c7355]">
-                <label for="sameAsBuyerD" class="text-[12px] md:text-sm text-[#3d2b1f] cursor-pointer">訂購人資料與收件人相同</label>
+                <label for="sameAsBuyerD" class="text-sm md:text-base text-[#3d2b1f] cursor-pointer">訂購人資料與收件人相同</label>
               </div>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="flex flex-col">
-                  <label class="text-[10px] uppercase tracking-wider mb-2">收件人 Recipient <span class="text-red-500">*</span></label>
-                  <input type="text" id="recipientD" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]" />
+                  <label class="text-xs uppercase tracking-wider mb-2">收件人 Recipient <span class="text-red-500">*</span></label>
+                  <input type="text" id="recipientD" class="bg-white border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355]" />
                 </div>
                 <div class="flex flex-col">
-                  <label class="text-[10px] uppercase tracking-wider mb-2">收件人電話 Phone <span class="text-red-500">*</span></label>
-                  <input type="tel" id="recipientPhoneD" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]" />
+                  <label class="text-xs uppercase tracking-wider mb-2">收件人電話 Phone <span class="text-red-500">*</span></label>
+                  <input type="tel" id="recipientPhoneD" class="bg-white border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355]" />
                 </div>
               </div>
               <div class="flex flex-col">
-                <label class="text-[10px] uppercase tracking-wider mb-2">7-11 門市名稱與店號 <span class="text-red-500">*</span></label>
-                <input type="text" id="storeInfo" placeholder="例如：台北欣美門市 (123456)" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355] placeholder:text-[#d1ccc4]" />
+                <label class="text-xs uppercase tracking-wider mb-2">7-11 門市名稱與店號 <span class="text-red-500">*</span></label>
+                <input type="text" id="storeInfo" placeholder="例如：台北欣美門市 (123456)" class="bg-white border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355] placeholder:text-[#d1ccc4]" />
               </div>
             </div>
 
             <div id="sub-E" class="sub-pickup space-y-4 transition-opacity duration-300" style="display: none;">
               <div class="flex flex-col">
-                <label class="text-[10px] uppercase tracking-wider mb-2">出貨梯次 <span class="text-red-500">*</span></label>
-                <select id="shippingBatchE" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]">
+                <label class="text-xs uppercase tracking-wider mb-2">出貨梯次 <span class="text-red-500">*</span></label>
+                <select id="shippingBatchE" class="bg-white border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355]">
                   <option value="" disabled selected>-- 點擊選擇梯次 --</option>
                   <option value="5/12-13">5/12-13</option>
                   <option value="5/25-27">5/25-27</option>
@@ -252,22 +252,22 @@
               </div>
               <div class="flex items-center gap-2">
                 <input type="checkbox" id="sameAsBuyerE" class="w-4 h-4 text-[#8c7355] border-[#d1ccc4] focus:ring-[#8c7355]">
-                <label for="sameAsBuyerE" class="text-[12px] md:text-sm text-[#3d2b1f] cursor-pointer">訂購人資料與收件人相同</label>
+                <label for="sameAsBuyerE" class="text-sm md:text-base text-[#3d2b1f] cursor-pointer">訂購人資料與收件人相同</label>
               </div>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="flex flex-col">
-                  <label class="text-[10px] uppercase tracking-wider mb-2">收件人 Recipient <span class="text-red-500">*</span></label>
-                  <input type="text" id="recipientE" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]" />
+                  <label class="text-xs uppercase tracking-wider mb-2">收件人 Recipient <span class="text-red-500">*</span></label>
+                  <input type="text" id="recipientE" class="bg-white border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355]" />
                 </div>
                 <div class="flex flex-col">
-                  <label class="text-[10px] uppercase tracking-wider mb-2">收件人電話 Phone <span class="text-red-500">*</span></label>
-                  <input type="tel" id="recipientPhoneE" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]" />
+                  <label class="text-xs uppercase tracking-wider mb-2">收件人電話 Phone <span class="text-red-500">*</span></label>
+                  <input type="tel" id="recipientPhoneE" class="bg-white border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355]" />
                 </div>
               </div>
               <div class="flex flex-col">
-                <label class="text-[10px] uppercase tracking-wider mb-2">收件地址 Address <span class="text-red-500">*</span></label>
-                <input type="text" id="addressE" class="bg-white border border-[#d1ccc4] px-3 py-2 text-sm focus:outline-none focus:border-[#8c7355]" />
-                <p class="text-[11px] text-[#8c7355] mt-2 flex items-center">
+                <label class="text-xs uppercase tracking-wider mb-2">收件地址 Address <span class="text-red-500">*</span></label>
+                <input type="text" id="addressE" class="bg-white border border-[#d1ccc4] px-3 py-2 text-base focus:outline-none focus:border-[#8c7355]" />
+                <p class="text-[13px] text-[#8c7355] mt-2 flex items-center">
                   ⚠️ 請確認收件地址是否有冷凍設備
                 </p>
               </div>
@@ -280,25 +280,25 @@
         <div class="mt-8 md:mt-12 pt-6 border-t border-[#e5e1da]">
           <div class="flex flex-col gap-2 mb-6">
             <div class="flex justify-between items-end">
-              <span class="text-[11px] tracking-widest uppercase opacity-60">商品總額 Subtotal</span>
-              <span class="text-base font-sans font-medium" id="subtotalDisplay">NT$ 0</span>
+              <span class="text-[13px] tracking-widest uppercase opacity-60">商品總額 Subtotal</span>
+              <span class="text-lg font-sans font-medium" id="subtotalDisplay">NT$ 0</span>
             </div>
             <div class="flex justify-between items-end" id="shippingRow" style="display: none;">
-              <span class="text-[11px] tracking-widest uppercase opacity-60">運費 Shipping</span>
-              <span class="text-base font-sans font-medium" id="shippingFeeDisplay">NT$ 0</span>
+              <span class="text-[13px] tracking-widest uppercase opacity-60">運費 Shipping</span>
+              <span class="text-lg font-sans font-medium" id="shippingFeeDisplay">NT$ 0</span>
             </div>
             <div class="flex justify-between items-end mt-2 pt-2 border-t border-[#e5e1da] border-dashed">
-              <span class="text-base tracking-widest uppercase font-bold">總計 Total</span>
-              <span class="text-2xl font-sans font-bold text-[#8c7355]" id="totalPriceDisplay">NT$ 0</span>
+              <span class="text-lg tracking-widest uppercase font-bold">總計 Total</span>
+              <span class="text-3xl font-sans font-bold text-[#8c7355]" id="totalPriceDisplay">NT$ 0</span>
             </div>
           </div>
 
-          <button type="submit" id="submitBtn" class="w-full bg-[#3d2b1f] text-white py-4 uppercase tracking-[0.3em] text-base font-bold hover:bg-[#5a402e] transition-colors disabled:opacity-70 flex justify-center items-center cursor-pointer">
+          <button type="submit" id="submitBtn" class="w-full bg-[#3d2b1f] text-white py-4 uppercase tracking-[0.3em] text-lg font-bold hover:bg-[#5a402e] transition-colors disabled:opacity-70 flex justify-center items-center cursor-pointer">
             確認送出訂單
             <br>CONFIRM ORDER
           </button>
           <div class="text-center mt-6">
-            <p class="text-[10px] uppercase tracking-widest opacity-40">
+            <p class="text-xs uppercase tracking-widest opacity-40">
               © <span id="currentYear"></span> OLULU CAKE ART. All rights reserved.
             </p>
           </div>
