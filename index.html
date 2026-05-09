@@ -76,7 +76,7 @@
               <div class="flex items-center gap-2">
                 <span id="qtyQPieces" class="text-sm text-[#8c7355] w-[40px] text-right font-medium">0 顆</span>
                 <div class="flex items-center gap-1">
-                  <input type="number" id="qtyQ" min="0" max="100" value="0" class="w-16 bg-white border border-[#d1ccc4] px-2 py-1 text-center text-sm focus:outline-none focus:border-[#8c7355]" />
+                  <select id="qtyQ" class="w-16 bg-white border border-[#d1ccc4] px-2 py-1 text-center text-sm focus:outline-none focus:border-[#8c7355]"></select>
                   <span class="text-sm text-[#3d2b1f]">盒</span>
                 </div>
               </div>
@@ -91,7 +91,7 @@
               </div>
               <div class="flex items-center gap-2">
                 <div class="flex items-center gap-1">
-                  <input type="number" id="qtyBasque" min="0" max="100" value="0" class="w-16 bg-white border border-[#d1ccc4] px-2 py-1 text-center text-sm focus:outline-none focus:border-[#8c7355]" />
+                  <select id="qtyBasque" class="w-16 bg-white border border-[#d1ccc4] px-2 py-1 text-center text-sm focus:outline-none focus:border-[#8c7355]"></select>
                   <span class="text-sm text-[#3d2b1f]">盒</span>
                 </div>
               </div>
@@ -293,8 +293,9 @@
             </div>
           </div>
 
-          <button type="submit" id="submitBtn" class="w-full bg-[#3d2b1f] text-white py-4 uppercase tracking-[0.3em] text-xs font-bold hover:bg-[#5a402e] transition-colors disabled:opacity-70 flex justify-center items-center cursor-pointer">
-            確認送出訂單 CONFIRM ORDER
+          <button type="submit" id="submitBtn" class="w-full bg-[#3d2b1f] text-white py-4 uppercase tracking-[0.3em] text-base font-bold hover:bg-[#5a402e] transition-colors disabled:opacity-70 flex justify-center items-center cursor-pointer">
+            確認送出訂單
+            <br>CONFIRM ORDER
           </button>
           <div class="text-center mt-6">
             <p class="text-[10px] uppercase tracking-widest opacity-40">
@@ -317,6 +318,11 @@
 
       const qtyQInput = document.getElementById('qtyQ');
       const qtyBasqueInput = document.getElementById('qtyBasque');
+      
+      for (let i = 0; i <= 99; i++) {
+        qtyQInput.add(new Option(i, i));
+        qtyBasqueInput.add(new Option(i, i));
+      }
       
       const subtotalDisplay = document.getElementById('subtotalDisplay');
       const shippingRow = document.getElementById('shippingRow');
@@ -513,7 +519,9 @@
       }
 
       qtyQInput.addEventListener('input', calculateTotal);
+      qtyQInput.addEventListener('change', calculateTotal);
       qtyBasqueInput.addEventListener('input', calculateTotal);
+      qtyBasqueInput.addEventListener('change', calculateTotal);
 
       // 處理單選顯示不同欄位
       function handlePickupChange(e) {
@@ -617,11 +625,38 @@
           })()
         };
 
+        let methodStr = "";
+        let detailsStr = "";
+        if (pickupMethod === 'A') { methodStr = "苗栗竹南自取"; detailsStr = `時段: ${pickupTime}`; }
+        if (pickupMethod === 'B') { methodStr = "台北士林自取"; detailsStr = `時段: ${pickupTime}`; }
+        if (pickupMethod === 'C') { methodStr = "宅配到府(冷藏)"; detailsStr = `梯次: ${shippingBatch}\n收件人: ${recipientName} (${recipientPhone})\n收件地址: ${address}`; }
+        if (pickupMethod === 'D') { methodStr = "7-11店到店(冷凍)"; detailsStr = `梯次: ${shippingBatch}\n收件人: ${recipientName} (${recipientPhone})\n門市資訊: ${storeInfo}`; }
+        if (pickupMethod === 'E') { methodStr = "宅配到府(冷凍)"; detailsStr = `梯次: ${shippingBatch}\n收件人: ${recipientName} (${recipientPhone})\n收件地址: ${address}`; }
+
+        let productsStr = "";
+        if (q > 0) productsStr += `杜拜巧克力 Q球: ${q} 盒\n`;
+        if (basque > 0) productsStr += `杜拜巧克力巴斯克: ${basque} 盒\n`;
+
+        const successMessage = `🎉 訂購成功！請截圖此畫面私訊 IG 進行確認 🎉\n\n` +
+          `【訂購人資料】\n` +
+          `姓名: ${formData.name}\n` +
+          `電話: ${formData.phone}\n` +
+          `IG: ${formData.ig}\n\n` +
+          `【商品明細】\n` +
+          `${productsStr}\n` +
+          `【取貨方式】\n` +
+          `${methodStr}\n` +
+          `${detailsStr}\n\n` +
+          `【金額】\n` +
+          `商品總額: NT$ ${subtotal.toLocaleString()}\n` +
+          `運費: ${fee === 0 ? '免運費' : 'NT$ ' + fee.toLocaleString()}\n` +
+          `總計: NT$ ${total.toLocaleString()}`;
+
         try {
           if (!scriptURL) {
             console.log("模擬送出資料:", formData);
             await new Promise(resolve => setTimeout(resolve, 1500));
-            alert('【測試模式】尚未設定 API 網址，已能在開發者工具 (Console) 查看 Payload。\n\n🎉 訂購成功！請截圖私訊 IG 進行確認。');
+            alert('【測試模式】尚未設定 API 網址，已能在開發者工具 (Console) 查看 Payload。\n\n' + successMessage);
           } else {
             const response = await fetch(scriptURL, {
               method: 'POST',
@@ -632,7 +667,7 @@
               mode: 'no-cors', 
               body: JSON.stringify(formData)
             });
-            alert('訂購成功！請截圖私訊 IG 進行確認');
+            alert(successMessage);
           }
         } catch (error) {
           console.error('Submission Error:', error);
