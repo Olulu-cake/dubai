@@ -33,11 +33,11 @@
     <!-- Header -->
     <header class="py-4 md:py-6 flex items-center justify-between px-6 md:px-10 border-b border-[#e5e1da] bg-white shrink-0">
       <div class="flex flex-col">
-        <h1 class="text-4xl md:text-4xl font-light tracking-[0.2em] uppercase">Olulu<br>杜拜巧克力
-        <p class="text-base md:text-base tracking-widest uppercase opacity-60">產品預購單 Pre-order</p>
+        <h1 class="text-2xl md:text-4xl font-light tracking-[0.2em] uppercase">Olulu<br>杜拜巧克力
+        <p class="text-xs md:text-base tracking-widest uppercase opacity-60">產品預購單 Pre-order</p>
       </div>
       <div class="text-xs md:text-[13px] tracking-widest uppercase font-semibold text-[#8c7355] text-right">
-        <img src="images/logo.jpg" class="w-24 h-12 rounded object-cover">
+        <img src="images/logo.jpg" class="w-36 h-24 rounded object-cover">
       </div>
     </header>
 
@@ -49,57 +49,8 @@
     <form id="orderForm" class="flex-1 flex flex-col md:flex-row md:overflow-hidden">
       
       <!-- Sidebar / Left Column -->
-      <aside class="w-full md:w-1/3 md:border-r border-[#e5e1da] p-6 md:p-8 flex flex-col gap-6 md:overflow-y-auto shrink-0">
+      <aside class="w-full md:w-1/2 lg:w-[55%] md:border-r border-[#e5e1da] p-6 md:p-8 flex flex-col gap-6 md:overflow-y-auto shrink-0">
         
-        <div class="bg-[#fff9f0] border border-[#f3e6d5] p-4 rounded-sm">
-          <p class="text-base leading-relaxed italic text-[#8c7355]">
-            ⚠️ 注意事項：
-            <br>🧆Q球為冷凍、巴斯克為冷藏。
-            <br>🧆同時購買Q球及巴斯克如選擇宅配/店到店，需分開填寫表單。
-            <br>🧆Q球13盒以上免運費，巴斯克4盒以上免運費。(限單一地址)
-            <br>🧆取貨方式選擇宅配/店到店者，請務必填寫完整的收件資訊。
-          </p>
-        </div>
-
-        <!-- 商品選擇放在前面 -->
-        <div class="space-y-4">
-          <h2 class="text-lg font-bold tracking-widest uppercase border-b border-[#3d2b1f] pb-1">商品選擇 Products</h2>
-          <div class="space-y-4">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-4">
-                <img src="images/Q.jpg" alt="杜拜巧克力 Q球" class="w-12 h-12 rounded object-cover">
-                <div class="flex flex-col">
-                  <span class="text-base">杜拜巧克力 Q球</span>
-                  <span class="text-sm opacity-60 font-sans">1盒2顆 $270元</span>
-                </div>
-              </div>
-              <div class="flex items-center gap-2">
-                <span id="qtyQPieces" class="text-base text-[#8c7355] w-[40px] text-right font-medium">0 顆</span>
-                <div class="flex items-center gap-1">
-                  <select id="qtyQ" class="w-16 bg-white border border-[#d1ccc4] px-2 py-1 text-center text-base focus:outline-none focus:border-[#8c7355]"></select>
-                  <span class="text-base text-[#3d2b1f]">盒</span>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-4">
-                <img src="images/bas.jpg" alt="杜拜巧克力巴斯克" class="w-12 h-12 rounded object-cover">
-                <div class="flex flex-col">
-                  <span class="text-base">杜拜巧克力巴斯克</span>
-                  <span class="text-sm opacity-60 font-sans">5吋 $880元</span>
-                </div>
-              </div>
-              <div class="flex items-center gap-2">
-                <div class="flex items-center gap-1">
-                  <select id="qtyBasque" class="w-16 bg-white border border-[#d1ccc4] px-2 py-1 text-center text-base focus:outline-none focus:border-[#8c7355]"></select>
-                  <span class="text-base text-[#3d2b1f]">盒</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 基本資料放在後面 -->
         <div class="space-y-4">
           <h2 class="text-lg font-bold tracking-widest uppercase border-b border-[#3d2b1f] pb-1">訂購人資料 Customer Info</h2>
           <div class="grid gap-4">
@@ -118,49 +69,123 @@
           </div>
         </div>
 
-      </aside>
+      
+        <div class="space-y-4">
+          <h2 class="text-lg font-bold tracking-widest uppercase border-b border-[#3d2b1f] pb-1">商品選擇 Products</h2>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <img src="images/Q.jpg" alt="杜拜巧克力 Q球" class="w-12 h-12 rounded object-cover">
+                <div class="flex flex-col">
+                  <span class="text-base">杜拜巧克力 Q球</span>
+                  <span class="text-sm opacity-60 font-sans">1盒2顆 $270元</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span id="qtyQPieces" class="text-base text-[#8c7355] w-[60px] whitespace-nowrap text-right font-medium">0 顆</span>
+                <div class="flex items-center gap-1">
+                  <select id="qtyQ" class="w-16 bg-white border border-[#d1ccc4] px-2 py-1 text-center text-base focus:outline-none focus:border-[#8c7355]"></select>
+                  <span class="text-base text-[#3d2b1f]">盒</span>
+                </div>
+              </div>
+            </div>
 
-      <!-- Main Content / Right Column -->
-      <section class="flex-1 p-6 md:p-8 flex flex-col justify-between w-full md:overflow-y-auto">
+            <div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <img src="images/Q.jpg" alt="杜拜巧克力Q球禮盒" class="w-12 h-12 rounded object-cover">
+                  <div class="flex flex-col">
+                    <span class="text-base">杜拜巧克力 Q球禮盒</span>
+                    <span class="text-sm opacity-60 font-sans">1盒6顆 $860元</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span id="qtyQGiftPieces" class="text-base text-[#8c7355] w-[60px] whitespace-nowrap text-right font-medium">0 顆</span>
+                  <div class="flex items-center gap-1">
+                    <select id="qtyQGift" class="w-16 bg-white border border-[#d1ccc4] px-2 py-1 text-center text-base focus:outline-none focus:border-[#8c7355]"></select>
+                    <span class="text-base text-[#3d2b1f]">盒</span>
+                  </div>
+                </div>
+              </div>
+              <div class="text-xs text-[#8c7355] bg-[#fff9f0] border border-[#f3e6d5] py-1 px-2 mt-2 rounded-sm w-fit flex items-center gap-1">
+                <span>ℹ️</span>
+                <span>Q球系列產品滿3500元可享一個地址冷凍免運</span>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <img src="images/bas.jpg" alt="杜拜巧克力巴斯克" class="w-12 h-12 rounded object-cover">
+                  <div class="flex flex-col">
+                    <span class="text-base">杜拜巧克力巴斯克</span>
+                    <span class="text-sm opacity-60 font-sans">5吋 $880元</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div class="flex items-center gap-1">
+                    <select id="qtyBasque" class="w-16 bg-white border border-[#d1ccc4] px-2 py-1 text-center text-base focus:outline-none focus:border-[#8c7355]"></select>
+                    <span class="text-base text-[#3d2b1f]">盒</span>
+                  </div>
+                </div>
+              </div>
+              <div class="text-xs text-[#8c7355] bg-[#fff9f0] border border-[#f3e6d5] py-1 px-2 mt-2 rounded-sm w-fit flex items-center gap-1">
+                <span>ℹ️</span>
+                <span>巴斯克滿3500元可享一個地址冷藏免運</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <!-- 取貨方式放在商品之後 -->
         <div class="space-y-6">
           <h2 class="text-lg font-bold tracking-widest uppercase border-b border-[#3d2b1f] pb-1 mb-6">取貨方式 Delivery</h2>
           
           <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
             <label class="cursor-pointer relative">
               <input type="radio" name="pickupMethod" value="A" class="hidden-radio peer" required />
-              <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#fcf8f2] transition-all">
+              <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#8c7355] peer-checked:text-white peer-checked:font-bold shadow-sm ring-1 ring-transparent peer-checked:ring-[#8c7355] transition-all">
                 <span class="text-[15px] md:text-base block">苗栗竹南自取</span>
               </div>
             </label>
             <label class="cursor-pointer relative">
               <input type="radio" name="pickupMethod" value="B" class="hidden-radio peer" required />
-              <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#fcf8f2] transition-all">
+              <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#8c7355] peer-checked:text-white peer-checked:font-bold shadow-sm ring-1 ring-transparent peer-checked:ring-[#8c7355] transition-all">
                 <span class="text-[15px] md:text-base block">台北士林自取</span>
               </div>
             </label>
              <label class="cursor-pointer relative" id="methodCLabel">
               <input type="radio" name="pickupMethod" value="C" class="hidden-radio peer" required />
-              <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#fcf8f2] transition-all">
+              <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#8c7355] peer-checked:text-white peer-checked:font-bold shadow-sm ring-1 ring-transparent peer-checked:ring-[#8c7355] transition-all">
                 <span class="text-[15px] md:text-base block">宅配到府(冷藏)</span>
               </div>
             </label>
             <label class="cursor-pointer relative" id="methodDLabel">
               <input type="radio" name="pickupMethod" value="D" class="hidden-radio peer" required />
-              <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#fcf8f2] transition-all">
+              <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#8c7355] peer-checked:text-white peer-checked:font-bold shadow-sm ring-1 ring-transparent peer-checked:ring-[#8c7355] transition-all">
                 <span class="text-[15px] md:text-base block">7-11店到店(冷凍)</span>
               </div>
             </label>
             <label class="cursor-pointer relative" id="methodELabel">
               <input type="radio" name="pickupMethod" value="E" class="hidden-radio peer" required />
-              <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#fcf8f2] transition-all">
+              <div class="h-full flex items-center justify-center border border-[#d1ccc4] p-3 text-center peer-checked:border-[#8c7355] peer-checked:bg-[#8c7355] peer-checked:text-white peer-checked:font-bold shadow-sm ring-1 ring-transparent peer-checked:ring-[#8c7355] transition-all">
                 <span class="text-[15px] md:text-base block">宅配到府(冷凍)</span>
               </div>
             </label>
           </div>
 
+          
+          <div id="mixedWarning" class="text-[#8c7355] text-base mt-4 p-3 bg-[#fff9f0] border border-[#f3e6d5] rounded-sm" style="display: none;">
+            ⚠️ 因Q球為冷凍寄送，巴斯克為冷藏寄送，若同時購買Q球系列產品及巴斯克只能選擇面交，若要宅配請填寫兩張訂單分開訂購，謝謝您的配合與理解！
+          </div>
+          <div id="freeShippingFrozenWarning" class="text-[#8c7355] text-sm mt-4 p-3 bg-[#fff9f0] border border-[#f3e6d5] rounded-sm font-medium" style="display: none;">
+            ✨ 恭喜您已達到滿3500元冷凍免運條件！(限寄送一個地址)
+          </div>
+          <div id="freeShippingColdWarning" class="text-[#8c7355] text-sm mt-4 p-3 bg-[#fff9f0] border border-[#f3e6d5] rounded-sm font-medium" style="display: none;">
+            ✨ 恭喜您已達到滿3500元冷藏免運條件！(限寄送一個地址)
+          </div>
+
           <!-- Sub options container -->
-          <!-- 如果只輸入單一日期，最後要加一個-以配合google sheets的日期格式，才能正確帶入工單日期中 
-           範例: <option value="2026/5/31-">2026/5/31-</option> -->
           <div class="mt-8 space-y-4 min-h-[120px]">
             <!-- 苗栗竹南自取 -->
             <div id="sub-A" class="sub-pickup flex-col transition-opacity duration-300" style="display: none;">
@@ -289,6 +314,12 @@
 
         </div>
 
+        
+      </aside>
+
+      <!-- Main Content / Right Column -->
+      <section class="w-full md:w-1/2 lg:w-[45%] p-6 md:p-8 flex flex-col justify-between w-full md:overflow-y-auto">
+
         <!-- Footer Area with Total and Submit -->
         <div class="mt-8 md:mt-12 pt-6 border-t border-[#e5e1da]">
           <div class="flex flex-col gap-2 mb-6">
@@ -326,13 +357,16 @@
       const scriptURL = "https://script.google.com/macros/s/AKfycbxNV-rNNTWkkBlN0NNx4CWen6j6lT-MmQNcQiiKYiyVzrRu1nDUd1D7EyvOgmO0EXde/exec"; 
       
       const priceQ = 270;
+      const priceQGift = 860;
       const priceBasque = 880;
 
       const qtyQInput = document.getElementById('qtyQ');
+      const qtyQGiftInput = document.getElementById('qtyQGift');
       const qtyBasqueInput = document.getElementById('qtyBasque');
       
       for (let i = 0; i <= 99; i++) {
         qtyQInput.add(new Option(i, i));
+        qtyQGiftInput.add(new Option(i, i));
         qtyBasqueInput.add(new Option(i, i));
       }
       
@@ -401,6 +435,8 @@
       // 處理更新可選的取貨方式
       function updateDeliveryOptions() {
         const q = parseInt(qtyQInput.value) || 0;
+        const qGift = parseInt(qtyQGiftInput.value) || 0;
+        const totalQ = q + qGift;
         const basque = parseInt(qtyBasqueInput.value) || 0;
 
         const methodCLabel = document.getElementById('methodCLabel');
@@ -409,8 +445,9 @@
         const radioC = document.querySelector('input[value="C"]');
         const radioD = document.querySelector('input[value="D"]');
         const radioE = document.querySelector('input[value="E"]');
+        const mixedWarning = document.getElementById('mixedWarning');
 
-        if (q > 0 && basque === 0) {
+        if (totalQ > 0 && basque === 0) {
           // 只有Q球，不顯示宅配到府(冷藏)
           methodCLabel.style.display = 'none';
           radioC.disabled = true;
@@ -418,7 +455,8 @@
           radioD.disabled = false;
           methodELabel.style.display = 'block';
           radioE.disabled = false;
-        } else if (basque > 0 && q === 0) {
+          mixedWarning.style.display = 'none';
+        } else if (basque > 0 && totalQ === 0) {
           // 只有巴斯克，不顯示7-11店到店(冷凍) 和 宅配到府(冷凍)
           methodCLabel.style.display = 'block';
           radioC.disabled = false;
@@ -426,7 +464,8 @@
           radioD.disabled = true;
           methodELabel.style.display = 'none';
           radioE.disabled = true;
-        } else if (q > 0 && basque > 0) {
+          mixedWarning.style.display = 'none';
+        } else if (totalQ > 0 && basque > 0) {
           // 兩者皆有，都不顯示 (只能自取)
           methodCLabel.style.display = 'none';
           radioC.disabled = true;
@@ -434,6 +473,7 @@
           radioD.disabled = true;
           methodELabel.style.display = 'none';
           radioE.disabled = true;
+          mixedWarning.style.display = 'block';
         } else {
           // 都為 0 (初始狀態)
           methodCLabel.style.display = 'block';
@@ -442,6 +482,7 @@
           radioD.disabled = false;
           methodELabel.style.display = 'block';
           radioE.disabled = false;
+          mixedWarning.style.display = 'none';
         }
 
         // 若當前選中的被隱藏，取消選中，隱藏次選單，並移除必填，並重新計算運費
@@ -465,98 +506,121 @@
         updateDeliveryOptions();
         
         const q = parseInt(qtyQInput.value) || 0;
+        const qGift = parseInt(qtyQGiftInput.value) || 0;
         const basque = parseInt(qtyBasqueInput.value) || 0;
 
-                // 更新 Q球 顆數
-        const qtyQPieces = document.getElementById('qtyQPieces');
+        // 更新 Q球 顆數
+        const qtyQPieces = document.getElementById("qtyQPieces");
         if (qtyQPieces) {
-          qtyQPieces.textContent = (q * 2) + ' 顆';
+          qtyQPieces.textContent = (q * 2) + " 顆";
         }
-        const subtotal = (q * priceQ) + (basque * priceBasque);
+        const qtyQGiftPieces = document.getElementById("qtyQGiftPieces");
+        if (qtyQGiftPieces) {
+          qtyQGiftPieces.textContent = (qGift * 6) + " 顆";
+        }
+
+        const totalQPrice = (q * priceQ) + (qGift * priceQGift);
+        const totalBasquePrice = basque * priceBasque;
+        const subtotal = totalQPrice + totalBasquePrice;
+
+        const isMixed = (q + qGift) > 0 && basque > 0;
+
+        const freeShippingFrozenWarning = document.getElementById('freeShippingFrozenWarning');
+        if (freeShippingFrozenWarning) {
+          freeShippingFrozenWarning.style.display = (!isMixed && totalQPrice >= 3500) ? 'block' : 'none';
+        }
         
-        let selectedMethod = '';
+        const freeShippingColdWarning = document.getElementById('freeShippingColdWarning');
+        if (freeShippingColdWarning) {
+          freeShippingColdWarning.style.display = (!isMixed && totalBasquePrice >= 3500) ? 'block' : 'none';
+        }
+        
+        let selectedMethod = "";
         const checkedRadio = document.querySelector('input[name="pickupMethod"]:checked');
         if (checkedRadio) {
           selectedMethod = checkedRadio.value;
         }
 
         let fee = 0;
+        // 等效Q球盒數 (用來粗略判斷未達免運時的運費級距，1盒禮盒約等於3盒Q球大小)
+        const equivalentQBoxes = q + (qGift * 3);
+
         // 運費計算邏輯
-        if (selectedMethod === 'C') { // 宅配到府
-          if (q > 0) {
-            if (q <= 6) fee += 170;
-            else if (q < 13) fee += 250;
-            // 滿 13 盒免運費 (0)
-          }
-          if (basque > 0) {
+        if (selectedMethod === "C") { // 宅配到府(冷藏)
+          if (totalBasquePrice >= 3500) {
+            fee += 0;
+          } else if (basque > 0) {
             if (basque <= 2) fee += 170;
-            else if (basque === 3) fee += 250;
-            // 滿 4 盒免運費 (0)
+            else fee += 250;
           }
-        } else if (selectedMethod === 'D') { // 7-11店到店
-          if (q > 0) {
-            if (q <= 12) fee += 140;
-            // 滿 13 盒免運費 (0)
+        } else if (selectedMethod === "D") { // 7-11店到店(冷凍)
+          if (totalQPrice >= 3500) {
+            fee += 0;
+          } else if (totalQPrice > 0) {
+            if (equivalentQBoxes <= 12) fee += 140;
+            else fee += 250; // 防呆增加
           }
-          // 巴斯克為冷藏，根據規則不支援 7-11 冷凍店到店，故不計入或另行處理。如有選擇則只計算 Q球 運費
-        } else if (selectedMethod === 'E') { // 宅配到府 (冷凍)
-          if (q > 0) {
-            if (q <= 6) fee += 170;
-            else if (q < 13) fee += 250;
-            // 滿 13 盒免運費 (0)
+        } else if (selectedMethod === "E") { // 宅配到府(冷凍)
+          if (totalQPrice >= 3500) {
+            fee += 0;
+          } else if (totalQPrice > 0) {
+            if (equivalentQBoxes <= 6) fee += 170;
+            else fee += 250;
           }
         }
 
         const total = subtotal + fee;
 
         // UI 顯示更新
-        subtotalDisplay.textContent = 'NT$ ' + subtotal.toLocaleString();
+        subtotalDisplay.textContent = "NT$ " + subtotal.toLocaleString();
         
-        if (fee > 0 || (subtotal > 0 && (selectedMethod === 'C' || selectedMethod === 'D' || selectedMethod === 'E'))) {
+        if (fee > 0 || (subtotal > 0 && (selectedMethod === "C" || selectedMethod === "D" || selectedMethod === "E"))) {
           // 有選擇寄送方式且有購買數量時顯示運費，0 元代表達免運門檻
-          shippingRow.style.display = 'flex';
-          shippingFeeDisplay.textContent = fee === 0 ? '免運費' : '+ NT$ ' + fee.toLocaleString();
+          shippingRow.style.display = "flex";
+          shippingFeeDisplay.textContent = fee === 0 ? "免運費" : "+ NT$ " + fee.toLocaleString();
           if (fee === 0) {
-             shippingFeeDisplay.classList.add('text-green-600', 'font-bold');
+             shippingFeeDisplay.classList.add("text-green-600", "font-bold");
           } else {
-             shippingFeeDisplay.classList.remove('text-green-600', 'font-bold');
+             shippingFeeDisplay.classList.remove("text-green-600", "font-bold");
           }
         } else {
-          shippingRow.style.display = 'none';
+          shippingRow.style.display = "none";
         }
 
-        totalPriceDisplay.textContent = 'NT$ ' + total.toLocaleString();
+        totalPriceDisplay.textContent = "NT$ " + total.toLocaleString();
 
         return { subtotal, fee, total };
       }
 
-      qtyQInput.addEventListener('input', calculateTotal);
-      qtyQInput.addEventListener('change', calculateTotal);
-      qtyBasqueInput.addEventListener('input', calculateTotal);
-      qtyBasqueInput.addEventListener('change', calculateTotal);
+      qtyQInput.addEventListener("input", calculateTotal);
+      qtyQInput.addEventListener("change", calculateTotal);
+      qtyQGiftInput.addEventListener("input", calculateTotal);
+      qtyQGiftInput.addEventListener("change", calculateTotal);
+      qtyBasqueInput.addEventListener("input", calculateTotal);
+      qtyBasqueInput.addEventListener("change", calculateTotal);
 
       // 處理單選顯示不同欄位
       function handlePickupChange(e) {
         // 先將所有次級菜單藏起來，並移除必填
         subPickups.forEach(el => {
-          el.style.display = 'none';
-          const inputs = el.querySelectorAll('input, select');
-          inputs.forEach(input => input.removeAttribute('required'));
+          el.style.display = "none";
+          const inputs = el.querySelectorAll("input, select");
+          inputs.forEach(input => input.removeAttribute("required"));
         });
 
         const selectedVal = e.target.value;
-        const selectedSub = document.getElementById('sub-' + selectedVal);
+        const selectedSub = document.getElementById("sub-" + selectedVal);
         
         if (selectedSub) {
           // 針對不同區塊套用正確的 display 排列方式
-          if (selectedVal === 'A' || selectedVal === 'B') {
-            selectedSub.style.display = 'flex';
+          if (selectedVal === "A" || selectedVal === "B") {
+            selectedSub.style.display = "flex";
           } else {
-            selectedSub.style.display = 'block';
+            selectedSub.style.display = "block";
           }
           // 將顯示出來的項目加上必填屬性 (排除 checkbox)
           const inputs = selectedSub.querySelectorAll('input:not([type="checkbox"]), select');
-          inputs.forEach(input => input.setAttribute('required', 'true'));
+          inputs.forEach(input => input.setAttribute("required", "true"));
         }
         
         // 變更取貨方式時，重新計算運費
@@ -564,19 +628,20 @@
       }
 
       radioButtons.forEach(radio => {
-        radio.addEventListener('change', handlePickupChange);
+        radio.addEventListener("change", handlePickupChange);
       });
 
       // 處理表單發送
-      orderForm.addEventListener('submit', async function(e) {
+      orderForm.addEventListener("submit", async function(e) {
         e.preventDefault();
 
         const q = parseInt(qtyQInput.value) || 0;
+        const qGift = parseInt(qtyQGiftInput.value) || 0;
         const basque = parseInt(qtyBasqueInput.value) || 0;
         const { subtotal, fee, total } = calculateTotal();
 
         // 簡單驗證至少選擇一樣商品
-        if (q === 0 && basque === 0) {
+        if (q === 0 && qGift === 0 && basque === 0) {
           alert("請至少選擇一項商品數量！");
           return;
         }
@@ -619,6 +684,7 @@
           phone: document.getElementById('phone').value,
           ig: document.getElementById('ig').value,
           qtyQ: q,
+          qtyQGift: qGift,
           qtyBasque: basque,
           pickupMethod: pickupMethod,
           pickupTime: pickupTime,
@@ -647,6 +713,7 @@
 
         let productsStr = "";
         if (q > 0) productsStr += `杜拜巧克力 Q球: ${q} 盒\n`;
+        if (qGift > 0) productsStr += `杜拜巧克力 Q球禮盒: ${qGift} 盒\n`;
         if (basque > 0) productsStr += `杜拜巧克力巴斯克: ${basque} 盒\n`;
 
         const successMessage = 
