@@ -37,7 +37,7 @@
         <p class="text-base md:text-xl tracking-widest uppercase opacity-60">甜品預購單 Pre-order</p>
       </div>
       <div class="text-xs md:text-[13px] tracking-widest uppercase font-semibold text-[#8c7355] text-right">
-        <img src="images/logo.jpg" class="w-24 h-12 rounded object-cover">
+        <img src="images/logo.jpg" class="w-28 h-12 rounded object-cover">
       </div>
     </header>
 
@@ -75,9 +75,9 @@
           <div class="space-y-4">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-4">
-                <img src="images/Q.jpg" alt="杜拜巧克力 Q球" class="w-12 h-12 rounded object-cover">
+                <img src="images/Q.jpg" alt="杜拜巧克力 Q球獨享盒" class="w-12 h-12 rounded object-cover">
                 <div class="flex flex-col">
-                  <span class="text-lg">杜拜巧克力 Q球</span>
+                  <span class="text-lg">杜拜巧克力 Q球獨享盒</span>
                   <span class="text-base opacity-60 font-sans">1盒2顆 $270元</span>
                 </div>
               </div>
@@ -236,7 +236,7 @@
                   <input type="text" id="recipientC" class="bg-white border border-[#d1ccc4] px-3 py-2 text-lg focus:outline-none focus:border-[#8c7355]" />
                 </div>
                 <div class="flex flex-col">
-                  <label class="text-sm uppercase tracking-wider mb-2">收件人電話 Phone <span class="text-red-500">*</span></label>
+                  <label class="text-sm uppercase tracking-wider mb-2">收件人電話 Phone No.<span class="text-red-500">*</span></label>
                   <input type="tel" id="recipientPhoneC" class="bg-white border border-[#d1ccc4] px-3 py-2 text-lg focus:outline-none focus:border-[#8c7355]" />
                 </div>
               </div>
@@ -267,7 +267,7 @@
                   <input type="text" id="recipientD" class="bg-white border border-[#d1ccc4] px-3 py-2 text-lg focus:outline-none focus:border-[#8c7355]" />
                 </div>
                 <div class="flex flex-col">
-                  <label class="text-sm uppercase tracking-wider mb-2">收件人電話 Phone <span class="text-red-500">*</span></label>
+                  <label class="text-sm uppercase tracking-wider mb-2">收件人電話 Phone No.<span class="text-red-500">*</span></label>
                   <input type="tel" id="recipientPhoneD" class="bg-white border border-[#d1ccc4] px-3 py-2 text-lg focus:outline-none focus:border-[#8c7355]" />
                 </div>
               </div>
@@ -296,7 +296,7 @@
                   <input type="text" id="recipientE" class="bg-white border border-[#d1ccc4] px-3 py-2 text-lg focus:outline-none focus:border-[#8c7355]" />
                 </div>
                 <div class="flex flex-col">
-                  <label class="text-sm uppercase tracking-wider mb-2">收件人電話 Phone <span class="text-red-500">*</span></label>
+                  <label class="text-sm uppercase tracking-wider mb-2">收件人電話 Phone No.<span class="text-red-500">*</span></label>
                   <input type="tel" id="recipientPhoneE" class="bg-white border border-[#d1ccc4] px-3 py-2 text-lg focus:outline-none focus:border-[#8c7355]" />
                 </div>
               </div>
@@ -710,7 +710,7 @@
         if (pickupMethod === 'E') { methodStr = "宅配到府(冷凍)"; detailsStr = `梯次: ${shippingBatch}\n收件人: ${recipientName} (${recipientPhone})\n收件地址: ${address}`; }
 
         let productsStr = "";
-        if (q > 0) productsStr += `杜拜巧克力 Q球: ${q} 盒\n`;
+        if (q > 0) productsStr += `杜拜巧克力 Q球獨享盒: ${q} 盒\n`;
         if (qGift > 0) productsStr += `杜拜巧克力 Q球禮盒: ${qGift} 盒\n`;
         if (basque > 0) productsStr += `杜拜巧克力巴斯克: ${basque} 盒\n`;
 
