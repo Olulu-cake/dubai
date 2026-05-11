@@ -589,6 +589,7 @@
             fee += 0;
           } else if (totalQPrice > 0) {
             if (qGift >= 2) fee += 250;
+            else if (qGift >= 1 && q >= 1) fee += 250;
             else if (equivalentQBoxes <= 6) fee += 170;
             else fee += 250;
           }
