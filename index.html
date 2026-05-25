@@ -769,6 +769,14 @@
           } else {
             alert(successMessage);
           }
+          
+          orderForm.reset();
+          subPickups.forEach(el => {
+            el.style.display = "none";
+            const inputs = el.querySelectorAll("input, select");
+            inputs.forEach(input => input.removeAttribute("required"));
+          });
+          calculateTotal();
         }, 50);
 
         try {
